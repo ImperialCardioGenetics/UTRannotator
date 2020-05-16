@@ -4,15 +4,6 @@ sub uAUG_gained{
 	#Description: annotate if a five_prime_UTR_variant creates ATG
 	#Returntype: hashref
 
-	#If the variant creates an ATG in the five prime UTR sequence
-    #uAUG_KozakContext => "The surrounding Kozak sequence of the uAUG",
-    #uAUG_KozakStrength => "Strength of the surrounding Kozak consensus of the uAUG",
-    #uAUG_DistanceToCDS => 'The uAUG distance upstream of the main ORF coding sequence',
-    #uAUG_FrameWithCDS => 'Frame with respect to the main ORF coding sequence',
-    #uAUG_InframeStop => 'Whether there is an infFame stop codon with respect to the uAUG within the 5 prime UTR',
-    #uAUG_DistanceToInframeStop => 'The uAUG distance to the inFrame stop codon within the 5 prime UTR',
-    #uAUG_DistanceFrmCap => 'Distance of uAUG from 5 prime mRNA cap',
-
 	my ($self, $variant_info,$UTR_info) = @_;
 	my %flip;
 	$flip{'A'}='T';
