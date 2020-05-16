@@ -1,5 +1,5 @@
 # uORF_annotator
-VEP Plugin to annotate high-impact five prime UTR variants
+VEP Plugin to annotate high-impact five prime UTR variants either creating new upstream ORFs or disrupting existing upstream ORFs
 
 # Caveats 
 - only tested on SNVs, small indels (1-5bp) and MNV (1-5bp)
