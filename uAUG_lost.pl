@@ -5,13 +5,6 @@ sub uAUG_lost{
     #Description: annotate if a five_prime_UTR_varint removes a start codon of an existing uORF(given that uORF doesn't not change)
     #Returntype: hashref
 
-    #output annotations
-#    If the variant removes the start codon of an existing uORF
-#    uAUG_loss_FrameWithCDS => 'Frame with respect to the main ORF coding sequence'
-#    uAUG_loss_KozakContext => 'The surrounding Kozak sequence of the lost uAUG',
-#    uAUG_loss_KozakStrength => 'Strength of the surrounding Kozak consensus of the lost uAUG',
-#    uAUG_loss_Evidence => 'Whether there is prior evidence of translation documented in sorfs.org',
-
     my ($self, $variant_info, $UTR_info) = @_;
     my %flip;
     $flip{'A'}='T';
