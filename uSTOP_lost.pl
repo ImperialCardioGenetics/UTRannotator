@@ -2,12 +2,7 @@ use experimental 'smartmatch';
 
 
 sub uSTOP_lost{
-    #assumption: there is no insertion or deletion happening before stop codon. If there are, will output as frameshift or inframe indels.
-
-
     #Description: annotate if a five_prime_UTR_varint removes a stop codon of an existing uORF(given that uORF doesn't not change)
-
-
     #Returntype: hashref
 
 
