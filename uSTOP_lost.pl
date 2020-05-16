@@ -10,15 +10,6 @@ sub uSTOP_lost{
 
     #Returntype: hashref
 
-    #output annotations
-#    If the variant removes the stop codon of an existing uORF
-#    uSTOP_AltStop => 'Whether there is another stop codon in the uORF',
-##    uSTOP_AltStopDistance => 'The distance of alternative stop codon to the lost stop codon', (depleted)
-#    uSTOP_AltStopDistanceToCDS => 'The distance of an alternative stop codon to CDS',
-#    uSTOP_FrameWithCDS => 'Consequence: Frame with respect to the main ORF coding sequence ',
-#    uSTOP_KozakContext => 'The surrounding Kozak sequence of the uAUG in the existing uORF',
-#    uSTOP_KozakStrength => 'Strength of the surrounding Kozak consensus of the uAUG in the existing uORF',
-#    uSTOP_Evidence => 'Whether there is prior evidence of translation documented in sorfs.org',
 
     my ($self, $variant_info, $UTR_info) = @_;
     my %flip;
