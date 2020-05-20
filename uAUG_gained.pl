@@ -4,6 +4,15 @@ sub uAUG_gained{
 	#Description: annotate if a five_prime_UTR_variant creates ATG
 	#Returntype: hashref
 
+	#If the variant creates an ATG in the five prime UTR sequence
+    #uAUG_KozakContext => "The surrounding Kozak sequence of the uAUG",
+    #uAUG_KozakStrength => "Strength of the surrounding Kozak consensus of the uAUG",
+    #uAUG_DistanceToCDS => 'The uAUG distance upstream of the main ORF coding sequence',
+    #uAUG_FrameWithCDS => 'Frame with respect to the main ORF coding sequence',
+    #uAUG_InframeStop => 'Whether there is an infFame stop codon with respect to the uAUG within the 5 prime UTR',
+    #uAUG_DistanceToInframeStop => 'The uAUG distance to the inFrame stop codon within the 5 prime UTR',
+    #uAUG_DistanceFrmCap => 'Distance of uAUG from 5 prime mRNA cap',
+
 	my ($self, $variant_info,$UTR_info) = @_;
 	my %flip;
 	$flip{'A'}='T';
@@ -111,7 +120,7 @@ sub uAUG_gained{
         my %existing_utr_uorf = %{$self->existing_uORF(\@mut_utr_seq)};
 
         if (%existing_utr_uorf){
-        if (@{$existing_utr_uorf{$pos_A}}){ #if there is stop codon within 5'UTR
+        if (exists($existing_utr_uorf{$pos_A})){ #if there is stop codon within 5'UTR
              $uAUG_gained_type = "uORF";
         }}elsif (($mut_utr_length-$pos_A) % 3){
              $uAUG_gained_type = "OutOfFrame_oORF";
@@ -122,10 +131,15 @@ sub uAUG_gained{
 
         my @overlapping_seq = split //, $mut_utr_seq.$UTR_info->{cds_seq};
         my %existing_uORF = %{$self->existing_uORF(\@overlapping_seq)};
+        if(exists($existing_uORF{$pos_A})){
         my @stop_pos_array = sort{$a<=>$b}@{$existing_uORF{$pos_A}};
         my $stop_pos = @stop_pos_array[0];
-
         $uAUG_gained_DistanceToStop = $stop_pos-$pos_A;
+        }else{
+        ### TODO: add to documentation - cannot find stop
+        $uAUG_gained_DistanceToStop = "NA";
+        }
+
 
   		my %uORF_effect = (
         "uAUG_gained_KozakContext" => $uAUG_gained_KozakContext,
