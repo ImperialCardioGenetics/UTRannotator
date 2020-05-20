@@ -32,7 +32,7 @@ package five_prime_UTR_annotator;
 require "uSTOP_lost.pl";
 require "uAUG_lost.pl";
 require "uAUG_gained.pl";
-require "frameshift.pl";
+require "uframeshift.pl";
 #require "ucanonical_splicing.pl";
 require "five_prime_UTR_utils.pl";
 
@@ -122,7 +122,7 @@ use base qw(Bio::EnsEMBL::Variation::Utils::BaseVepPlugin);
 	my $cds = $t->translateable_seq();
 	#print $cds_seq."\n";
 	#retrieve the five prime utr sequence
-	my $five_prime_seq = (defined $t? $t->five_prime_utr->seq(): undef);
+	my $five_prime_seq = (defined $t->five_prime_utr? $t->five_prime_utr->seq(): undef);
     #print $five_prime_seq."\n";
 
     #Type: five_prime_feature - Bio::EnsEMBL::Feature
@@ -136,6 +136,7 @@ use base qw(Bio::EnsEMBL::Variation::Utils::BaseVepPlugin);
 		push(@five_utr_ends,$end);
 	}
 
+	
 	my @sorted_starts = sort {$a <=> $b} @five_utr_starts;
 	my @sorted_ends = sort {$a <=> $b} @five_utr_ends;
 
