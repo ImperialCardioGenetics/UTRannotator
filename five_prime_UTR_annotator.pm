@@ -22,8 +22,7 @@ limitations under the License.
  mv five_prime_UTR_annotator.pm ~/.vep/Plugins
  ./vep -i variations.vcf --plugin five_prime_UTR_annotator, uORF_starts_ends_GRCh37_PUBLIC.txt
 =head1 DESCRIPTION
- A VEP plugin that annotates the effect of 5' UTR variant especially for variant creating start codon uAUG and disrupting stop codon
- Please cite Whiffin et al. Characterising the loss-of-function impact of 5' untranslated region variants in whole genome sequence data from 15,708 individuals. bioRxiv (2019)
+ A VEP plugin that annotates the effect of high-impact 5' UTR variant 
 =cut
 
 
