@@ -10,7 +10,8 @@ VEP Plugin to annotate high-impact five prime UTR variants either creating new u
 - PERL (tested on version 5.26.2)
 
 # Usage 
-To use the plugin with VEP, you would need to add the plugin module in Perl's library path. To do this, you could either 
+To use the plugin with VEP, you would need to add the plugin module in Perl's library path. To do this, you could either: 
+
 (1) copy all the files of this repository to the VEP default path `~/.vep/Plugins` or
 (2) copy the repository and add its path to environment variable `$PERL5LIB`.
 
