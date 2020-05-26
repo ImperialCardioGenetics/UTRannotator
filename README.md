@@ -5,6 +5,10 @@ VEP Plugin to annotate high-impact five prime UTR variants either creating new u
 - only tested on SNVs, small indels (1-5bp) and MNV (1-5bp)
 - only consider canonical start codon
 
+# Requirements
+- VEP (tested on release-99/202001)
+- PERL (tested on version 5.26.2)
+
 # Usage 
 To use the plugin with VEP, you would need to add the plugin module in Perl's library path. To do this, you could either 
 (1) copy all the files of this repository to the VEP default path `~/.vep/Plugins` or
@@ -12,4 +16,8 @@ To use the plugin with VEP, you would need to add the plugin module in Perl's li
 
 The Plugin could be run with VEP using the following command (if using hg19 genome build): 
 
-`vep -i test_var.vcf --database --hgvs --tab --port 3337 --force_overwrite -plugin five_prime_UTR_annotator,/path/to/uORF_starts_ends_GRCh37_PUBLIC.txt -o test_var.output`
+`vep -i test_var.vcf --database --hgvs --tab --port 3337 --minimal -plugin five_prime_UTR_annotator,/path/to/uORF_starts_ends_GRCh37_PUBLIC.txt -o test_var.output`. 
+
+To be noticed, it's necessary to add option `--minimal` to transform the allele into minimal representations if it hasn't been transformed beforehand. We have found that this option is necessary especially for variants represented with rs IDs from dbSNP. 
+
+
