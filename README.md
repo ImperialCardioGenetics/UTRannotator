@@ -21,7 +21,7 @@ Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-funct
 - VEP (tested on release-99/202001)
 - PERL (tested on version 5.26.2)
 
-# Usage 
+# Installation
 To use the plugin with VEP, you would need to add the plugin module in Perl's library path. To do this, you could either: 
 
 (1) copy all the files of this repository to the VEP default path `$HOME/.vep/Plugins` or
@@ -29,6 +29,7 @@ To use the plugin with VEP, you would need to add the plugin module in Perl's li
 
 e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/5primeUTRannotator` to `~/.bash_profile`.
 
+#Usage
 The Plugin could be run with VEP using the following command (if using hg19 genome build): 
 
 `vep -i test.vcf --database --hgvs --tab --port 3337 --minimal -plugin five_prime_UTR_annotator,/path/to/uORF_starts_ends_GRCh37_PUBLIC.txt -o test.output`. 
