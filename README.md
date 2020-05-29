@@ -13,7 +13,9 @@ VEP Plugin to annotate high-impact five prime UTR variants either creating new u
 To use the plugin with VEP, you would need to add the plugin module in Perl's library path. To do this, you could either: 
 
 (1) copy all the files of this repository to the VEP default path `$HOME/.vep/Plugins` or
-(2) copy the repository and add its path to environment variable `$PERL5LIB`.
+(2) copy the repository and add its path to environment variable `$PERL5LIB`. 
+
+e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/5primeUTRannotator` to `~/.bash_profile`.
 
 The Plugin could be run with VEP using the following command (if using hg19 genome build): 
 

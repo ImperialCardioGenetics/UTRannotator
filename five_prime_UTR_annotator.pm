@@ -19,21 +19,21 @@ limitations under the License.
 =head1 NAME
  five_prime_UTR_annotator
 =head1 SYNOPSIS
- mv five_prime_UTR_annotator.pm ~/.vep/Plugins
- ./vep -i variations.vcf --plugin five_prime_UTR_annotator, uORF_starts_ends_GRCh37_PUBLIC.txt
+ mv 5primeUTRannotator/* $HOME/.vep/Plugins
+ vep -i variations.vcf --plugin five_prime_UTR_annotator, /path/to/uORF_starts_ends_GRCh37_PUBLIC.txt
 =head1 DESCRIPTION
- A VEP plugin that annotates the effect of high-impact 5' UTR variant 
+ A VEP plugin that annotates the effect of 5' UTR variant especially for variant creating/disrupting upstream ORFs
+ Please cite Whiffin et al. Characterising the loss-of-function impact of 5' untranslated region variants in whole genome sequence data from 15,708 individuals. bioRxiv (2019)
 =cut
 
 
 package five_prime_UTR_annotator;
 
-require "uSTOP_lost.pl";
-require "uAUG_lost.pl";
-require "uAUG_gained.pl";
-require "uframeshift.pl";
-#require "ucanonical_splicing.pl";
-require "five_prime_UTR_utils.pl";
+require "src/uSTOP_lost.pl";
+require "src/uAUG_lost.pl";
+require "src/uAUG_gained.pl";
+require "src/uframeshift.pl";
+require "src/five_prime_UTR_utils.pl";
 
 use base qw(Bio::EnsEMBL::Variation::Utils::BaseVepPlugin);
 
@@ -79,8 +79,8 @@ use base qw(Bio::EnsEMBL::Variation::Utils::BaseVepPlugin);
 	     five_prime_UTR_variant_consequence => "Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_lost, uFrameshift",
 	     five_prime_UTR_variant_annotation => "Output the annotation of a given 5 prime UTR variant",
          existing_uORFs => 'The number of existing uORFs already within the 5 prime UTR',
-         existing_outOfFrame_oORFs => 'The number of existing oORFs already within the 5 prime UTR',
-         existing_inFrame_oORFs => 'The number of existing inFrame ORFs already within the 5 prime UTR',
+         existing_OutOfFrame_oORFs => 'The number of existing oORFs already within the 5 prime UTR',
+         existing_InFrame_oORFs => 'The number of existing inFrame ORFs already within the 5 prime UTR',
         };
 		return $self->{_header_info};
     }
@@ -106,8 +106,6 @@ use base qw(Bio::EnsEMBL::Variation::Utils::BaseVepPlugin);
 	"ref" => $ref,
 	"alt" => $alt,
 	);
-
-
 
   #retrieve the UTR info: transcript id, strand, five prime UTR sequence, start and end genomic coordinates.
 	my $t = $bvfo->transcript;
@@ -188,8 +186,8 @@ use base qw(Bio::EnsEMBL::Variation::Utils::BaseVepPlugin);
     "five_prime_UTR_variant_annotation" => (join "|", @output_five_prime_annotation),
     );
 
-  	my $existing_uORF = $self->count_number_ATG($five_prime_seq);
-	my $output ={%utr_effect, %$existing_uORF};
+  	my $existing_uORF_num = $self->count_number_ATG($five_prime_seq);
+	my $output ={%utr_effect, %$existing_uORF_num};
 	return $output? $output: {};
  }
 
