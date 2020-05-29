@@ -25,6 +25,7 @@ Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-funct
 To use the plugin with VEP, you would need to add the plugin module in Perl's library path. To do this, you could either: 
 
 (1) copy all the files of this repository to the VEP default path `$HOME/.vep/Plugins` or
+
 (2) copy the repository and add its path to environment variable `$PERL5LIB`. 
 
 e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/5primeUTRannotator` to `~/.bash_profile`.
