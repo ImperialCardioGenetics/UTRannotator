@@ -1,7 +1,7 @@
 # 5'UTR annotator
 VEP Plugin to annotate high-impact five prime UTR variants either creating new upstream ORFs or disrupting existing upstream ORFs
 
-Currently, it will annotate whether a small variation (1-5bp) in 5'UTR would have any of the following molecular consequences:
+Currently, it will annotate whether a small variation (1-5bp) including SNVs, indels and MNVs in 5'UTR would have any of the following molecular consequences:
 
  - uAUG-gained: creating a new start codon AUG
  - uAUG-lost: removing an existing start codon AUG
@@ -18,7 +18,7 @@ Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-funct
 - only consider canonical start codon
 
 # Requirements
-- VEP (tested on release-99/202001)
+- VEP (tested on release-99/202001 and release-100/202005)
 - PERL (tested on version 5.26.2)
 
 # Installation
