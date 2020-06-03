@@ -8,15 +8,19 @@ Currently, it will annotate whether a small variation (1-5bp) including SNVs, in
  - [uSTOP_lost](#ustop-lost): removing the stop codon of an existing upstream ORF  
  - [uFrameShift](#uframeshift): creating a frameshift mutation in an existing upstream ORF   
  
+
+# Content 
+ [Citation](#citation)
+ [Requirements](#requirements)
+ [Installation](#installation)
+ [Usage](#usage)
+ [Annotation output](#annotation-output)
+ 
 # Citation  
   
 Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-function impact of 5’ untranslated region variants in 15,708 individuals. Nat Commun 11, 2523 (2020). https://doi.org/10.1038/s41467-019-10717-9  
   
-  
-# Caveats 
-- only tested on SNVs, small indels (1-5bp) and MNV (1-5bp)  
-- only consider canonical start codon  
-  
+    
 # Requirements  
 - VEP (tested on release-99/202001 and release-100/202005)  
 - PERL (tested on version 5.26.2)  
@@ -62,23 +66,23 @@ For example:
   
 `19  45971469    FOSB    forward five_prime_utr  45971714`  
   
-# Documentation on the output  
+# Annotation Output  
   
 The output annotation from the plugin includes 5 columns:   
   
 For any 5'UTR variants, the plugin will first output the number of existing subtype uORFs in the 5'UTR  
   
-Column 1 - existing_InFrame_oORFs: The number of existing inframe overlapping ORFs (inFrame_oORF) already within the 5 prime UTR 
+**Column 1** - existing_InFrame_oORFs: The number of existing inframe overlapping ORFs (inFrame_oORF) already within the 5 prime UTR 
 
-Column 2 - existing_OutOfFrame_oORFs: The number of existing out-of-frame overlapping ORFs (OutOfFrame_oORF) already within the 5 prime UTR 
+**Column 2** - existing_OutOfFrame_oORFs: The number of existing out-of-frame overlapping ORFs (OutOfFrame_oORF) already within the 5 prime UTR 
 
-Column 3 - existing_uORFs: The number of existing uORFs with a stop codon within the 5 prime UTR  `
+**Column 3** - existing_uORFs: The number of existing uORFs with a stop codon within the 5 prime UTR  `
 
 If this 5'UTR is uORF-perturbing, the plugin will output the consequence and detailed annotation of each consequence:   
   
-Column 4 - five_prime_UTR_variant_consequence: Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_lost, uFrameshift
+**Column 4** - five_prime_UTR_variant_consequence: Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_lost, uFrameshift
 
-Column 5 - five_prime_UTR_variant_annotation: Output the annotation of a given 5 prime UTR variant 
+**Column 5** - five_prime_UTR_variant_annotation: Output the annotation of a given 5 prime UTR variant 
 
 If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be concatenated with a vertical bar `|`;   
   
@@ -126,3 +130,8 @@ If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be con
 | uFrameshift_KozakContext        | String    | The Kozak context sequence of the disrupted uORF                                                                   |
 | uFrameshift_KozakStrength       | String    | The Kozak strength of the disrupted uORF, described by one of the following values: Weak, Medium or Strong.        |
 | uFrameshift_evidence            | Boolean   | Whether the disrupted uORF has any translation evidence. Output NA if no evidence file provided                                                          |
+
+
+# Caveats 
+- only tested on SNVs, small indels (1-5bp) and MNV (1-5bp)  
+- only consider canonical start codon  
