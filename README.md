@@ -3,6 +3,7 @@ A VEP Plugin to annotate high-impact five prime UTR variants either creating new
   
 Currently, it will annotate whether a small variation (1-5bp) including SNVs, indels and MNVs in 5'UTR would have any of the following molecular consequences:  
   
+ - [uAUG_gained](#uaug-gained): creating a new start codon AUG  
  - [uAUG_lost](#uaug-lost): removing an existing start codon AUG  
  - [uSTOP_lost](#ustop-lost): removing the stop codon of an existing upstream ORF  
  - [uFrameShift](#uframeshift): creating a frameshift mutation in an existing upstream ORF   
@@ -42,7 +43,7 @@ To be noticed, it's necessary to add option `--minimal` to transform the alleles
   
 The plugin could also check whether an input variant disrupts a verified translated uORF.  
   
-To use this option, users would pass a file of a list of verified translated uORFs as input.   
+To use this option, users would pass an evidence file of a list of verified translated uORFs as input.   
   
 For translated small ORFs in human, we have curated a list of uORFs previously identified with ribosome profiling from the online repository of small ORFs (www.sorfs.org)  
   
@@ -93,7 +94,7 @@ If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be con
 | uAUG_lost_KozakStrength  | String    | The Kozak strength of the lost uAUG, described by one of the following values: Weak, Medium or Strong.                                          |
 | uAUG_lost_DistanceToCDS  | Integer   | The distance (number of nucleotides) between the lost uAUG to CDS                                                                               |
 | uAUG_lost_DistanceToSTOP | Integer   | The distance (number of nucleotides) between the lost uAUG to the nearest stop codon (scanning through both the 5’UTR and its downstream CDS).  |
-| uAUG_lost_evidence       | Boolean   | Whether the uORF disrupted by the lost uAUG has any translation evidence. Output NA if no evidence file provided.                                                                      |
+| uAUG_lost_evidence       | Boolean   | Whether the uORF disrupted by the lost uAUG has any translation evidence. Output NA if no evidence file provided                                                                      |
 
 ### uSTOP lost
 
@@ -104,7 +105,7 @@ If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be con
 | uSTOP_lost_KozakContext         | String    | The Kozak context sequence of the disrupted uORF                                                              |
 | uSTOP_lost_KozakStrength        | String    | The Kozak strength of the disrupted uORF, described by one of the following values: Weak, Medium or Strong.   |
 | uSTOP_lost_FrameWithCDS         | String    | The frame of the uORF with respect to CDS, described by inFrame or outOfFrame.                                |
-| uSTOP_lost_evidence             | Boolean   | Whether the uORF disrupted by the lost stop codon has any translation evidence. OUtput NA if no evidence file provided.                        |
+| uSTOP_lost_evidence             | Boolean   | Whether the uORF disrupted by the lost stop codon has any translation evidence. Output NA if no evidence file provided.                               |
 
 ### uFrameShift
 
@@ -115,65 +116,4 @@ If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be con
 | uFrameshift_alt_type            | String    | The type of uORF with the alternative allele, described by one of following: uORF, inframe_oORF or OutOfFrame_oORF |
 | uFrameshift_KozakContext        | String    | The Kozak context sequence of the disrupted uORF                                                                   |
 | uFrameshift_KozakStrength       | String    | The Kozak strength of the disrupted uORF, described by one of the following values: Weak, Medium or Strong.        |
-| uFrameshift_evidence            | Boolean   | Whether the disrupted uORF has any translation evidence. Output NA if no evidence file provided.                                                           |
-
-# 5'UTR annotator
-VEP Plugin to annotate high-impact five prime UTR variants either creating new upstream ORFs or disrupting existing upstream ORFs
-
-Currently, it will annotate whether a small variation (1-5bp) including SNVs, indels and MNVs in 5'UTR would have any of the following molecular consequences:
-
- - uAUG-gained: creating a new start codon AUG
- - uAUG-lost: removing an existing start codon AUG
- - uSTOP-lost: removing the stop codon of an existing upstream ORF
- - uFrameShift: creating a frameshift mutation in an existing upstream ORF 
-
-# Citation
-
-Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-function impact of 5’ untranslated region variants in 15,708 individuals. Nat Commun 11, 2523 (2020). https://doi.org/10.1038/s41467-019-10717-9
-
-
-# Caveats 
-- only tested on SNVs, small indels (1-5bp) and MNV (1-5bp)
-- only consider canonical start codon
-
-# Requirements
-- VEP (tested on release-99/202001 and release-100/202005)
-- PERL (tested on version 5.26.2)
-
-# Installation
-To use the plugin with VEP, you would need to add the plugin module in Perl's library path. To do this, you could either: 
-
-(1) copy all the files of this repository to the VEP default path `$HOME/.vep/Plugins` or
-
-(2) copy the repository and add its path to environment variable `$PERL5LIB`. 
-
-e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/UTRannotator` to `~/.bash_profile`.
-
-# Usage
-The Plugin could be run with VEP using the following command (if using hg19 genome build): 
-
-`vep -i test.vcf --database --hgvs --tab --port 3337 --minimal -plugin UTRannotator,/path/to/uORF_starts_ends_GRCh37_PUBLIC.txt -o test.output`. 
-
-To be noticed, it's necessary to add option `--minimal` to transform the alleles into minimal representations if it hasn't been transformed beforehand. We have found that this option is necessary especially for variants represented with rs IDs from dbSNP. 
-
-
-# Documentation on the output
-
-The output annotation from the plugin includes 5 columns: 
-
-For any 5'UTR variants, the plugin will first output the number of existing subtype uORFs in the 5'UTR
-
-    Column 1 - existing_InFrame_oORFs: The number of existing inframe overlapping ORFs (inFrame_oORF) within the 5 prime UTR
-    Column 3 - existing_OutOfFrame_oORFs: The number of existing out-of-frame overlapping ORFs (OutOfFrame_oORF) within the 5 prime UTR
-    Column 2 - existing_uORFs: The number of existing uORFs with a stop codon within the 5 prime UTR
-
-If this 5'UTR is uORF-perturbing, the plugin will output the consequence and detailed annotation of each consequence: 
-
-	Column 4 - five_prime_UTR_variant_annotation: Output the annotation of a given 5 prime UTR variant
-    Column 5 - five_prime_UTR_variant_consequence: Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_lost, and uFrameshift
-
-If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be concatenated with a vertical bar `|`; 
-
-
-
-
+| uFrameshift_evidence            | Boolean   | Whether the disrupted uORF has any translation evidence. Output NA if no evidence file provided                                                          |
