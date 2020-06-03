@@ -51,7 +51,7 @@ For any 5'UTR variants, the plugin will first output the number of existing subt
 If this 5'UTR is uORF-perturbing, the plugin will output the consequence and detailed annotation of each consequence: 
 
 	Column 4 - five_prime_UTR_variant_annotation: Output the annotation of a given 5 prime UTR variant
-    Column 5 - five_prime_UTR_variant_consequence: Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_lost, uFrameshift
+    Column 5 - five_prime_UTR_variant_consequence: Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_lost, and uFrameshift
 
 If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be concatenated with a vertical bar `|`; 
 
