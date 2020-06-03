@@ -13,7 +13,8 @@ Currently, it will annotate whether a small variation (1-5bp) including SNVs, in
 Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-function impact of 5’ untranslated region variants in 15,708 individuals. Nat Commun 11, 2523 (2020). https://doi.org/10.1038/s41467-019-10717-9  
   
   
-# Caveats - only tested on SNVs, small indels (1-5bp) and MNV (1-5bp)  
+# Caveats 
+- only tested on SNVs, small indels (1-5bp) and MNV (1-5bp)  
 - only consider canonical start codon  
   
 # Requirements  
