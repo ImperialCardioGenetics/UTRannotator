@@ -1,3 +1,5 @@
+use strict;
+use warnings;
 use experimental 'smartmatch';
 
 sub uFrameshift{
@@ -26,8 +28,8 @@ sub uFrameshift{
     my $strand = $UTR_info->{strand};
     my $utr_length = @sequence;
 
-    my %existing_uORF = {};
-    %existing_uORF = %{$self->existing_uORF(\@sequence)};
+    my %existing_uORF = %{$self->existing_uORF(\@sequence)};
+
 
     #return annotators
 	my $uFrameshift_ref_type = ""; # the type of uORF with the reference allele
@@ -158,7 +160,12 @@ sub uFrameshift{
             	#find evidence from sorf
             	##TODO: fix the finding evidence of uORF
             	my $query = ($chr=~/chr/i)?$chr.":".$start_chr_pos:"chr".$chr.":".$start_chr_pos;
+                if(exists($self->{uORF_evidence})){
                 $uFrameshift_evidence=$self->{uORF_evidence}->{$query}?"True":"False";
+                }else{
+                $uFrameshift_evidence= "NA";
+                }
+
 
                 my %uORF_effect = (
                 "uFrameShift_ref_type" => $uFrameshift_ref_type,

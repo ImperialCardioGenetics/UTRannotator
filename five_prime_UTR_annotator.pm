@@ -36,46 +36,44 @@ require "src/uframeshift.pl";
 require "src/five_prime_UTR_utils.pl";
 
 use base qw(Bio::EnsEMBL::Variation::Utils::BaseVepPlugin);
+use warnings;
+use strict;
 
-    sub feature_types {
+sub feature_types {
         return ['Transcript'];
     }
 
 	sub new {
-	my $class = shift;
-	my $self = $class->SUPER::new(@_);
-	my $file = $self->params->[0];
+        my $class = shift;
+        my $self = $class->SUPER::new(@_);
+        my $file = $self->params->[0];
 
-	if(!$file) {
-    my $plugin_dir = $INC{'five_prime_UTR_annotator.pm'};
-    $plugin_dir =~ s/five_prime_UTR_annotator\.pm//i;
-    $file = $plugin_dir.'/uORF_starts_ends_GRCh37_PUBLIC.txt';
-  }
+        if ($file)
+        {
+        open my $fh, "<", $file;
+        my %uORF_evidence;
 
-  die("ERROR: SORF file $file not found\n") unless $file && -e $file;
+        while (<$fh>) {
+            chomp;
+            my ($chr, $pos, $gene, $strand, $type, $stop_pos) = split /\t/;
 
-	open my $fh, "<",  $file;
-  	my %uORF_evidence;
+            my $key = $chr . ":" . $pos; # chr has 'chr' proceeding
+            $uORF_evidence{$key} = 1;
+        }
 
-  while(<$fh>) {
-    chomp;
-    my ($chr, $pos, $gene, $strand, $type, $stop_pos) = split /\t/;
+        close $fh;
 
-    my $key = $chr.":".$pos; # chr has 'chr' proceeding
-    $uORF_evidence{$key} = 1;
-   }
-
-
-  close $fh;
-
-  $self->{uORF_evidence} = \%uORF_evidence;
+        $self->{uORF_evidence} = \%uORF_evidence;
+        }else{
+         printf "Warning: small ORF file not found. Could use our curated list of uORFs(from sorf.org) at the repository: 'uORF_starts_ends_GRCh37_PUBLIC.txt'\n";
+        }
 
   return $self;
 }
 
     sub get_header_info {
 
-	$self->{_header_info} = {
+	my $self->{_header_info} = {
 	     five_prime_UTR_variant_consequence => "Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_lost, uFrameshift",
 	     five_prime_UTR_variant_annotation => "Output the annotation of a given 5 prime UTR variant",
          existing_uORFs => 'The number of existing uORFs already within the 5 prime UTR',

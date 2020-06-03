@@ -1,5 +1,5 @@
-use experimental 'smartmatch';
-#use strict;
+use strict;
+use warnings;
 
 sub uAUG_lost{
     #Description: annotate if a five_prime_UTR_varint removes a start codon of an existing uORF
@@ -34,9 +34,7 @@ sub uAUG_lost{
     my $utr_length = @sequence;
     my $strand = $UTR_info->{strand};
 
-    my %existing_uORF = {};
-    %existing_uORF = %{$self->existing_uORF(\@sequence)};
-
+    my %existing_uORF = %{$self->existing_uORF(\@sequence)};
 
     #return annotators
     my $uAUG_lost_type = "";   # the uORF type with the reference allele - uORF, inframe_oORF, outOfFrame_oORF
@@ -95,7 +93,7 @@ sub uAUG_lost{
         $flag_uORF=1;
         }else{
 
-        my $mut_codon = @mut_utr_seq[$start_pos].@mut_utr_seq[$start_pos+1].@mut_utr_seq[$start_pos+2];
+        my $mut_codon = $mut_utr_seq[$start_pos].$mut_utr_seq[$start_pos+1].$mut_utr_seq[$start_pos+2];
 
         if ($mut_codon eq "ATG") {next;}
         $flag_uORF=1;
@@ -143,7 +141,7 @@ sub uAUG_lost{
                 my @overlapping_seq = split //, $UTR_info->{seq}.$UTR_info->{cds_seq};
                 my %existing_uORF = %{$self->existing_uORF(\@overlapping_seq)};
                 my @stop_pos_array = sort{$a<=>$b}@{$existing_uORF{$start_pos}};
-                my $stop_pos = @stop_pos_array[0];
+                my $stop_pos = $stop_pos_array[0];
 
                 $uAUG_lost_DistanceToSTOP = $stop_pos-$start_pos;
 
@@ -154,8 +152,11 @@ sub uAUG_lost{
             	##TODO: fix the finding evidence of uORF
 
             	my $query = ($chr=~/chr/i)?$chr.":".$start_chr_pos:"chr".$chr.":".$start_chr_pos;
-            	$uAUG_lost_evidence=$self->{uORF_evidence}->{$query}?"True":"False";
-
+            	if(exists($self->{uORF_evidence})) {
+                    $uAUG_lost_evidence = $self->{uORF_evidence}->{$query} ? "True" : "False";
+                }else{
+                    $uAUG_lost_evidence="NA";
+                }
 
                 my %uORF_effect = (
                 "uAUG_lost_type" => $uAUG_lost_type,

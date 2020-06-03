@@ -1,14 +1,14 @@
 ## ENSEMBL VARIANT EFFECT PREDICTOR v100.1
-## Output produced at 2020-05-29 12:13:41
+## Output produced at 2020-06-03 17:24:45
 ## Connected to homo_sapiens_core_100_37 on ensembldb.ensembl.org
 ## Using API version 100, DB version 100
-## ensembl-variation version 100.1074e16
 ## ensembl-funcgen version 100.f0c3948
 ## ensembl-io version 100.f87ae4f
+## ensembl-variation version 100.1074e16
 ## ensembl version 100.7e964b7
+## assembly version GRCh37.p13
 ## genebuild version 2011-04
 ## gencode version GENCODE 19
-## assembly version GRCh37.p13
 ## Column descriptions:
 ## Uploaded_variation : Identifier of uploaded variant
 ## Location : Location of variant in standard coordinate format (chr:start or chr:start-end)

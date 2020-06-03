@@ -1,4 +1,5 @@
 use strict;
+use warnings;
 
 sub uAUG_gained{
 	#Description: annotate if a five_prime_UTR_variant creates ATG
@@ -16,7 +17,6 @@ sub uAUG_gained{
     $kozak_strength{2}='Moderate';
     $kozak_strength{3}='Strong';
 
-	my $chr = $variant_info->{chr};
 	my $pos = $variant_info->{pos};
 	my $ref = $variant_info->{ref};
 	my $alt = $variant_info->{alt};
@@ -33,7 +33,7 @@ sub uAUG_gained{
     my $uAUG_gained_DistanceToStop = ""; #the distance between the gained uAUG to stop codon (could be in CDS)
 
 	#indicate whether the variant creates a ATG
-	my $flag = "";
+	my $flag = 0;
 	my $current_kozak = "";
 	my $current_kozak_strength ="";
 
@@ -66,7 +66,7 @@ sub uAUG_gained{
     $flag=1;
     }
 
-    if ($flag ==1){
+    if ($flag){
 
   ################################################################################
   #annotator 1: get the distance to the start codon of the main ORF
@@ -124,7 +124,7 @@ sub uAUG_gained{
         my %existing_uORF = %{$self->existing_uORF(\@overlapping_seq)};
         if(exists($existing_uORF{$pos_A})){
         my @stop_pos_array = sort{$a<=>$b}@{$existing_uORF{$pos_A}};
-        my $stop_pos = @stop_pos_array[0];
+        my $stop_pos = $stop_pos_array[0];
         $uAUG_gained_DistanceToStop = $stop_pos-$pos_A;
         }else{
         $uAUG_gained_DistanceToStop = "NA";

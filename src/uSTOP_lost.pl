@@ -1,5 +1,5 @@
-use experimental 'smartmatch';
-
+use strict;
+use warnings;
 
 sub uSTOP_lost{
 
@@ -37,8 +37,7 @@ sub uSTOP_lost{
     my @sequence = split //, $UTR_info->{seq};
     my $strand = $UTR_info->{strand};
 
-    my %existing_uORF = {};
-    %existing_uORF = %{$self->existing_uORF(\@sequence)};
+    my %existing_uORF = %{$self->existing_uORF(\@sequence)};
 
     #return annotators
     my $uSTOP_lost_AltStop = "";  #whether there is an alternative stop codon downstream
@@ -86,7 +85,7 @@ sub uSTOP_lost{
 
         if ($mut_pos-$stop_pos>2) {next;}
 
-        #for insertion
+
         if (length($ref_coding)){
 
         #for snps and deletion
@@ -100,8 +99,9 @@ sub uSTOP_lost{
         if (length($alt_coding) eq 0) {
         $flag_uORF=1;
         }else{
-        my $mut_codon = @mut_utr_seq[$stop_pos].@mut_utr_seq[$stop_pos+1].@mut_utr_seq[$stop_pos+2];
-        if ($mut_codon ~~ @stop_codons) {next;}
+        my $mut_codon = $mut_utr_seq[$stop_pos].$mut_utr_seq[$stop_pos+1].$mut_utr_seq[$stop_pos+2];
+
+        if ( grep( /^$mut_codon$/, @stop_codons ) ) {next;}
         $flag_uORF=1;
         }
 
@@ -164,8 +164,11 @@ sub uSTOP_lost{
             	##TODO: fix the finding evidence of uORF
 
             	my $query = ($chr=~/chr/i)?$chr.":".$start_chr_pos:"chr".$chr.":".$start_chr_pos;
-
-            	$uSTOP_lost_evidence=$self->{uORF_evidence}->{$query}?"True":"False";
+                if(exists($self->{uORF_evidence})) {
+                    $uSTOP_lost_evidence = $self->{uORF_evidence}->{$query} ? "True" : "False";
+                }else{
+                    $uSTOP_lost_evidence = "NA";
+                }
 
 
                 my %uORF_effect = (
