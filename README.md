@@ -11,9 +11,13 @@ Currently, it will annotate whether a small variation (1-5bp) including SNVs, in
 
 # Content 
  [Citation](#citation)
+ 
  [Requirements](#requirements)
+ 
  [Installation](#installation)
+ 
  [Usage](#usage)
+ 
  [Annotation output](#annotation-output)
  
 # Citation  
