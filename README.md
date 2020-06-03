@@ -28,12 +28,12 @@ To use the plugin with VEP, you would need to add the plugin module in Perl's li
 
 (2) copy the repository and add its path to environment variable `$PERL5LIB`. 
 
-e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/5primeUTRannotator` to `~/.bash_profile`.
+e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/UTRannotator` to `~/.bash_profile`.
 
 # Usage
 The Plugin could be run with VEP using the following command (if using hg19 genome build): 
 
-`vep -i test.vcf --database --hgvs --tab --port 3337 --minimal -plugin five_prime_UTR_annotator,/path/to/uORF_starts_ends_GRCh37_PUBLIC.txt -o test.output`. 
+`vep -i test.vcf --database --hgvs --tab --port 3337 --minimal -plugin UTRannotator,/path/to/uORF_starts_ends_GRCh37_PUBLIC.txt -o test.output`. 
 
 To be noticed, it's necessary to add option `--minimal` to transform the alleles into minimal representations if it hasn't been transformed beforehand. We have found that this option is necessary especially for variants represented with rs IDs from dbSNP. 
 
