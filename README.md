@@ -44,8 +44,8 @@ The output annotation from the plugin includes 5 columns:
 
 For any 5'UTR variants, the plugin will first output the number of existing subtype uORFs in the 5'UTR
 
-    Column 1 - existing_InFrame_oORFs: The number of existing inframe overlapping ORFs (inFrame_oORF) already within the 5 prime UTR
-    Column 3 - existing_OutOfFrame_oORFs: The number of existing out-of-frame overlapping ORFs (OutOfFrame_oORF) already within the 5 prime UTR
+    Column 1 - existing_InFrame_oORFs: The number of existing inframe overlapping ORFs (inFrame_oORF) within the 5 prime UTR
+    Column 3 - existing_OutOfFrame_oORFs: The number of existing out-of-frame overlapping ORFs (OutOfFrame_oORF) within the 5 prime UTR
     Column 2 - existing_uORFs: The number of existing uORFs with a stop codon within the 5 prime UTR
 
 If this 5'UTR is uORF-perturbing, the plugin will output the consequence and detailed annotation of each consequence: 
