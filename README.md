@@ -20,6 +20,8 @@ Currently, it will annotate whether a small variation (1-5bp) including SNVs, in
  
  [Annotation output](#annotation-output)
  
+ [Caveats] (#caveats)
+ 
 # Citation  
   
 Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-function impact of 5’ untranslated region variants in 15,708 individuals. Nat Commun 11, 2523 (2020). https://doi.org/10.1038/s41467-019-10717-9  
