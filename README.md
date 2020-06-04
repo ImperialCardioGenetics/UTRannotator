@@ -20,7 +20,7 @@ Currently, it will annotate whether a small variation (1-5bp) including SNVs, in
  
  [Annotation output](#annotation-output)
  
- [Caveats] (#caveats)
+ [Caveats](#caveats)
  
 # Citation  
   
