@@ -52,8 +52,10 @@ e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/UTRannotator` to `~/.bash
   
 To run the plugin with VEP, you could the following command line:    
   
-`vep -i test.vcf -plugin UTRannotator -o test.output`  
+`vep -i test.vcf --tab -plugin UTRannotator -o test.output`  
   
+Currently, the output format is designed for tab-delimited output. 
+
 To be noticed, it's necessary to add option `--minimal` to transform the alleles into minimal representations if it hasn't been transformed beforehand. We have found that this option is necessary especially for variants represented with rs IDs from dbSNP.   
   
 ## Optional Usage  
@@ -72,7 +74,7 @@ Genome build GRCh38: `uORF_starts_ends_GRCh38_PUBLIC.txt`
 
 The command to use the file is 
 
-`vep -i test.vcf -plugin UTRannotator,/path/to/uORF_starts_ends_GRCh37_PUBLIC.txt -o test.output`
+`vep -i test.vcf --tab -plugin UTRannotator,/path/to/uORF_starts_ends_GRCh37_PUBLIC.txt -o test.output`
   
 To use a customized list of translated uORF, users would curate a tab-delimited txt file with the following columns:  
   
