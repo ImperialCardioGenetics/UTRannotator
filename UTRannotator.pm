@@ -65,7 +65,7 @@ sub feature_types {
 
         $self->{uORF_evidence} = \%uORF_evidence;
         }else{
-         printf "Warning: small ORF file not found. Could use our curated list of uORFs(from sorf.org) at the repository: 'uORF_starts_ends_GRCh37_PUBLIC.txt'\n";
+         printf "Warning: small ORF file not found. Could use our curated list of uORFs(from sorf.org) at the repository: 'uORF_starts_ends_GRCh37_PUBLIC.txt' for GRCh37 or 'uORF_starts_ends_GRCh38_PUBLIC.txt' for GRCh38\n";
         }
 
   return $self;
