@@ -69,6 +69,10 @@ This list is available in the repository:
 Genome build GRCh37: `uORF_starts_ends_GRCh37_PUBLIC.txt`  
   
 Genome build GRCh38: `uORF_starts_ends_GRCh38_PUBLIC.txt`  
+
+The command to use the file is 
+
+`vep -i test.vcf -plugin UTRannotator,/path/to/uORF_starts_ends_GRCh37_PUBLIC.txt -o test.output`
   
 To use a customized list of translated uORF, users would curate a tab-delimited txt file with the following columns:  
   
