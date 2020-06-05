@@ -24,8 +24,14 @@ Currently, it will annotate whether a small variation (1-5bp) including SNVs, in
  
 # Citation  
   
+About the role of 5'UTR variants in human genetic disease: 
+
 Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-function impact of 5’ untranslated region variants in 15,708 individuals. Nat Commun 11, 2523 (2020). https://doi.org/10.1038/s41467-019-10717-9  
-  
+
+To use our tool, please cite:
+
+Annotating high-impact 5'untranslated region variants with the UTRannotator
+Zhang, X., Wakeling, M.N., Ware, J.S, Whiffin,N. bioRxiv 2020.06.03.132266; doi: https://doi.org/10.1101/2020.06.03.132266
     
 # Requirements  
 - VEP (tested on release-99/202001 and release-100/202005)  
