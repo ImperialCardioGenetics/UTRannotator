@@ -8,6 +8,12 @@ Currently, it will annotate whether a small variation (1-5bp) including SNVs, in
  - [uSTOP_lost](#ustop-lost): removing the stop codon of an existing upstream ORF  
  - [uFrameShift](#uframeshift): creating a frameshift mutation in an existing upstream ORF   
  
+Highlights: 
+
+The annotation output is transcript-specific not restricted to canonical transcript.
+
+The plugin is applicable to annotate 5'UTR in eukaroyotes.  
+
 
 # Content 
  [Citation](#citation)
