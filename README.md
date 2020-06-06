@@ -83,6 +83,9 @@ For example:
 `CHR    START_POS GENE    STRAND  TYPE    STOP_POS`  
   
 `19  45971469    FOSB    forward five_prime_utr  45971714`  
+
+`START_POS` and `STOP_POS` are the start genomic position and end genomics position of a small ORF respectively. 
+
   
 # Annotation Output  
   
