@@ -8,6 +8,12 @@ Currently, it will annotate whether a small variation (1-5bp) including SNVs, in
  - [uSTOP_lost](#ustop-lost): removing the stop codon of an existing upstream ORF  
  - [uFrameShift](#uframeshift): creating a frameshift mutation in an existing upstream ORF   
  
+Highlights: 
+
+The annotation output is transcript-specific not restricted to canonical transcript.
+
+The plugin is applicable to annotate 5'UTR in eukaroyotes.  
+
 
 # Content 
  [Citation](#citation)
@@ -20,10 +26,18 @@ Currently, it will annotate whether a small variation (1-5bp) including SNVs, in
  
  [Annotation output](#annotation-output)
  
+ [Caveats](#caveats)
+ 
 # Citation  
   
+About the role of 5'UTR variants in human genetic disease: 
+
 Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-function impact of 5’ untranslated region variants in 15,708 individuals. Nat Commun 11, 2523 (2020). https://doi.org/10.1038/s41467-019-10717-9  
-  
+
+To use our tool, please cite:
+
+Annotating high-impact 5'untranslated region variants with the UTRannotator
+Zhang, X., Wakeling, M.N., Ware, J.S, Whiffin,N. bioRxiv 2020.06.03.132266; doi: https://doi.org/10.1101/2020.06.03.132266
     
 # Requirements  
 - VEP (tested on release-99/202001 and release-100/202005)  
@@ -44,8 +58,10 @@ e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/UTRannotator` to `~/.bash
   
 To run the plugin with VEP, you could the following command line:    
   
-`vep -i test.vcf -plugin UTRannotator -o test.output`  
+`vep -i test.vcf --tab -plugin UTRannotator -o test.output`  
   
+Currently, the output format is designed for tab-delimited output. 
+
 To be noticed, it's necessary to add option `--minimal` to transform the alleles into minimal representations if it hasn't been transformed beforehand. We have found that this option is necessary especially for variants represented with rs IDs from dbSNP.   
   
 ## Optional Usage  
@@ -61,6 +77,10 @@ This list is available in the repository:
 Genome build GRCh37: `uORF_starts_ends_GRCh37_PUBLIC.txt`  
   
 Genome build GRCh38: `uORF_starts_ends_GRCh38_PUBLIC.txt`  
+
+The command to use the file is 
+
+`vep -i test.vcf --tab -plugin UTRannotator,/path/to/uORF_starts_ends_GRCh37_PUBLIC.txt -o test.output`
   
 To use a customized list of translated uORF, users would curate a tab-delimited txt file with the following columns:  
   
@@ -69,6 +89,9 @@ For example:
 `CHR    START_POS GENE    STRAND  TYPE    STOP_POS`  
   
 `19  45971469    FOSB    forward five_prime_utr  45971714`  
+
+`START_POS` and `STOP_POS` are the start genomic position and end genomics position of a small ORF respectively. 
+
   
 # Annotation Output  
   
