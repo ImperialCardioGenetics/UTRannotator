@@ -6,6 +6,7 @@ Currently, it will annotate whether a small variation (1-5bp) including SNVs, in
  - [uAUG_gained](#uaug-gained): creating a new start codon AUG  
  - [uAUG_lost](#uaug-lost): removing an existing start codon AUG  
  - [uSTOP_lost](#ustop-lost): removing the stop codon of an existing upstream ORF  
+ - [uSTOP gained] (#ustop-gained): creating a new stop codon within an existing upstream ORF
  - [uFrameShift](#uframeshift): creating a frameshift mutation in an existing upstream ORF   
  
 Highlights: 
@@ -120,7 +121,7 @@ If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be con
 |-----------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | uAUG_gained_type            | String    | The type of of 5’ UTR ORF created, described by one of the following: uORF(with a stop codon in 5’UTR), inframe_oORF (inframe and overlapping  with CDS),OutOfFrame_oORF (out of frame and overlapping with CDS)   |
 | uAUG_gained_KozakContext    | String    | The Kozak context sequence of the gained uAUG                                                                                                                                                                      |
-| uAUG_gained_KozakStrength   | String    | The Kozak strength of the gained uAUG, described by one of the following values: Weak, Medium or Strong.                                                                                                           |
+| uAUG_gained_KozakStrength   | String    | The Kozak strength of the gained uAUG, described by one of the following values: Weak, Moderate or Strong.                                                                                                           |
 | uAUG_gained_DistanceToCDS   | Integer   | The distance (number of nucleotides) between the gained  uAUG to CDS                                                                                                                                               |
 | uAUG_gained_DistanceFromCap | Integer   | The distance (number of nucleotides) between the gained uAUG to the start of 5’UTR                                                                                                                                 |
 | uAUG_gained_DistanceToSTOP  | Integer   | The distance (number of nucleotides) between the gained uAUG to STOP codon (scanning through both the 5’UTR and its downstream CDS). If there is no STOP codon found, it would output NA.                          |
@@ -131,7 +132,7 @@ If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be con
 |--------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | uAUG_lost_type           | String    | The type of 5’ UTR ORF lost, described by one of the following: uORF,  inframe_oORF or OutOfFrame_oORF                                          |
 | uAUG_lost_KozakContext   | String    | The Kozak context sequence of the lost uAUG                                                                                                     |
-| uAUG_lost_KozakStrength  | String    | The Kozak strength of the lost uAUG, described by one of the following values: Weak, Medium or Strong.                                          |
+| uAUG_lost_KozakStrength  | String    | The Kozak strength of the lost uAUG, described by one of the following values: Weak, Moderate or Strong.                                          |
 | uAUG_lost_DistanceToCDS  | Integer   | The distance (number of nucleotides) between the lost uAUG to CDS                                                                               |
 | uAUG_lost_DistanceToSTOP | Integer   | The distance (number of nucleotides) between the lost uAUG to the nearest stop codon (scanning through both the 5’UTR and its downstream CDS).  |
 | uAUG_lost_evidence       | Boolean   | Whether the uORF disrupted by the lost uAUG has any translation evidence. Output NA if no evidence file provided                                                                      |
@@ -143,9 +144,22 @@ If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be con
 | uSTOP_lost_AltStop              | String    | Whether there is an alternative stop codon downstream within 5’ UTR                                           |
 | uSTOP_lost_AltStopDistanceToCDS | Integer   | The distance between the alternative stop codon (if exists) and CDS                                           |
 | uSTOP_lost_KozakContext         | String    | The Kozak context sequence of the disrupted uORF                                                              |
-| uSTOP_lost_KozakStrength        | String    | The Kozak strength of the disrupted uORF, described by one of the following values: Weak, Medium or Strong.   |
+| uSTOP_lost_KozakStrength        | String    | The Kozak strength of the disrupted uORF, described by one of the following values: Weak, Moderate or Strong.   |
 | uSTOP_lost_FrameWithCDS         | String    | The frame of the uORF with respect to CDS, described by inFrame or outOfFrame.                                |
 | uSTOP_lost_evidence             | Boolean   | Whether the uORF disrupted by the lost stop codon has any translation evidence. Output NA if no evidence file provided.                               |
+
+### uSTOP gained
+
+| Annotations                     | Data type | Description                                                                                                   |
+|---------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
+| uSTOP_gained_ref_StartDistanceToCDS              | Integer    | The distance between the uAUG of the disrupting uORF to CDS                                           |
+| uSTOP_gained_ref_type | String   | the type of uORF being disrupted - any of the following: uORF, inframe_oORF,OutOfFrame_oORF                                           |
+| uSTOP_gained_KozakContext        | String    | The Kozak context sequence of the disrupted uORF                                                              |
+| uSTOP_gained_KozakStrength       | String    | The Kozak strength of the disrupted uORF, described by one of the following values: Weak, Moderate or Strong.   |
+| uSTOP_gained_newSTOPDistanceToCDS         | String    | The distance between the gained uSTOP to the start of the CDS                               |
+| uSTOP_gained_evidence            | Boolean   | Whether the disrupted uORF has any translation evidence. Output NA if no evidence file provided.                               |
+
+
 
 ### uFrameShift
 
@@ -155,7 +169,7 @@ If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be con
 | uFrameshift_StartDistanceToCDS  | Integer   | The distance between the start codon of the disrupting uORF and CDS                                                |
 | uFrameshift_alt_type            | String    | The type of uORF with the alternative allele, described by one of following: uORF, inframe_oORF or OutOfFrame_oORF |
 | uFrameshift_KozakContext        | String    | The Kozak context sequence of the disrupted uORF                                                                   |
-| uFrameshift_KozakStrength       | String    | The Kozak strength of the disrupted uORF, described by one of the following values: Weak, Medium or Strong.        |
+| uFrameshift_KozakStrength       | String    | The Kozak strength of the disrupted uORF, described by one of the following values: Weak, Moderate or Strong.        |
 | uFrameshift_evidence            | Boolean   | Whether the disrupted uORF has any translation evidence. Output NA if no evidence file provided                                                          |
 
 
