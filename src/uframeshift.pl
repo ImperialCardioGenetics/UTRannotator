@@ -33,18 +33,21 @@ sub uFrameshift{
 
     #return annotators
 	my $uFrameshift_ref_type = ""; # the type of uORF with the reference allele
+    my $uFrameshift_ref_type_length = ""; # the length of the uORF with of the reference allele.
     my $uFrameshift_StartDistanceToCDS = ""; # the distance between the start codon of the disrupted uORF and CDS
     my $uFrameshift_alt_type = ""; # the type of uORF with the alternative allele
+    my $uFrameshift_alt_type_length = ""; # the length of the uORF with of the alternative allele
     my $uFrameshift_KozakContext = ""; # the Kozak context sequence of the disrupted uORF
     my $uFrameshift_KozakStrength = ""; # the Kozak strength of the disrupted uORF
     my $uFrameshift_evidence = ""; # whehter there is translation evidence for the disrupted uORF
+
 
     #indicate whether the variant ever introduce a frameshift variant
     my $flag_uORF;
     my $output_flag = "";
 
-    my $current_kozak;
-    my $current_kozak_strength;
+    my $current_kozak="";
+    my $current_kozak_strength="";
 
     my %result = (); #result is a hash table with two elements: $flag and $output_effects
     my $output_effects="";
@@ -81,6 +84,7 @@ sub uFrameshift{
         #For overlapping ORF: start_pos .. 3' end of 5'UTR sequence
 
         #if the variant is entirely in the uORF (within 5'UTR)
+
         if(exists($existing_uORF{$start_pos})) {
             my @stops = sort {$a <=> $b} @{$existing_uORF{$start_pos}};
             $check_point = $stops[0]-1;;
@@ -123,28 +127,35 @@ sub uFrameshift{
 
 
                 #the annotation of the original uORF
-                if (@{$existing_uORF{$start_pos}}){ #if there is stop codon within 5'UTR
-                    $uFrameshift_ref_type = "uORF"
-                }elsif (($utr_length-$start_pos) % 3){
-                	$uFrameshift_ref_type = "OutOfFrame_oORF";
-                    }
-                else{
+                my @ref_overlapping_seq = split //, $UTR_info->{seq}.$UTR_info->{cds_seq};
+                my %ref_existing_oORF = %{$self->existing_uORF(\@ref_overlapping_seq)};
+
+                if (exists($existing_uORF{$start_pos})){ #if there is stop codon within 5'UTR
+                    $uFrameshift_ref_type = "uORF";
+                }elsif (($utr_length-$start_pos) % 3) {
+                    $uFrameshift_ref_type = "OutOfFrame_oORF";
+
+                }else{
                     $uFrameshift_ref_type = "InFrame_oORF";
                     }
+
+                if (exists($ref_existing_oORF{$start_pos})){
+                    my @stops = sort {$a <=> $b} @{$ref_existing_oORF{$start_pos}};
+                    $uFrameshift_ref_type_length = $stops[0]-$start_pos+3;
+                    }else{
+                     $uFrameshift_ref_type_length = "NA";
+                }
 
                 $uFrameshift_StartDistanceToCDS = $utr_length - $start_pos;
 
                 #if there is an alternative stop codon in the mutant uORF sequence
                 my %mut_uORF = %{$self->existing_uORF(\@mut_utr_seq)};
+                my @alt_overlapping_seq = split //, $mut_utr_seq.$UTR_info->{cds_seq};
+                my %alt_existing_oORF = %{$self->existing_uORF(\@alt_overlapping_seq)};
 
-                my @mut_stops;
-				#Since we only evaluate frameshift within uORFs, thus the start codon shall not be affected.
-                #Thus there shall always be an uORF existed after mutation.
-                if(exists($mut_uORF{$start_pos})){
-                @mut_stops = sort {$a <=> $b} @{$mut_uORF{$start_pos}}
-                };
 
-                if (@mut_stops>0){
+
+                if (exists($mut_uORF{$start_pos})){
                 $uFrameshift_alt_type = "uORF";
                 } #if there is no alternative stop codon
                 elsif(($length-$start_pos)%3) {
@@ -152,6 +163,14 @@ sub uFrameshift{
                 }
                 else{
                     $uFrameshift_alt_type = "InFrame_oORF";
+                }
+
+                #get the length
+                if (exists($alt_existing_oORF{$start_pos})){
+                    my @stops = sort {$a <=> $b} @{$alt_existing_oORF{$start_pos}};
+                    $uFrameshift_alt_type_length = $stops[0]-$start_pos+3;
+                    }else{
+                     $uFrameshift_alt_type_length = "NA";
                 }
 
             	#find evidence from sorfs.org
@@ -169,8 +188,10 @@ sub uFrameshift{
 
                 my %uORF_effect = (
                 "uFrameShift_ref_type" => $uFrameshift_ref_type,
+                "uFrameShift_ref_type_length" => $uFrameshift_ref_type_length,
                 "uFrameShift_ref_StartDistanceToCDS" => $uFrameshift_StartDistanceToCDS,
                 "uFrameShift_alt_type" => $uFrameshift_alt_type,
+                "uFrameShift_alt_type_length" => $uFrameshift_alt_type_length,
                 "uFrameShift_KozakContext" => $uFrameshift_KozakContext,
                 "uFrameShift_KozakStrength" => $uFrameshift_KozakStrength,
                 "uFrameShift_Evidence" => $uFrameshift_evidence,

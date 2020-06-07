@@ -34,7 +34,7 @@ sub uAUG_lost{
     my $utr_length = @sequence;
     my $strand = $UTR_info->{strand};
 
-    my %existing_uORF = %{$self->existing_uORF(\@sequence)};
+    my %existing_ref_uORF = %{$self->existing_uORF(\@sequence)};
 
     #return annotators
     my $uAUG_lost_type = "";   # the uORF type with the reference allele - uORF, inframe_oORF, outOfFrame_oORF
@@ -127,7 +127,9 @@ sub uAUG_lost{
 
                 #check what kind of uORF does that correspond to?
                 #first check whether it's overlapping with CDS
-                if (@{$existing_uORF{$start_pos}}){ #if there is stop codon within 5'UTR
+
+
+                if (exists($existing_ref_uORF{$start_pos})){ #if there is stop codon within 5'UTR
                     $uAUG_lost_type = "uORF"
                 }elsif (($utr_length-$start_pos) % 3){
                 	$uAUG_lost_type = "OutOfFrame_oORF";
@@ -139,8 +141,8 @@ sub uAUG_lost{
                 $uAUG_lost_DistanceToCDS = $utr_length - $start_pos;
 
                 my @overlapping_seq = split //, $UTR_info->{seq}.$UTR_info->{cds_seq};
-                my %existing_uORF = %{$self->existing_uORF(\@overlapping_seq)};
-                my @stop_pos_array = sort{$a<=>$b}@{$existing_uORF{$start_pos}};
+                my %existing_overlapping_uORF = %{$self->existing_uORF(\@overlapping_seq)};
+                my @stop_pos_array = sort{$a<=>$b}@{$existing_overlapping_uORF{$start_pos}};
                 my $stop_pos = $stop_pos_array[0];
 
                 $uAUG_lost_DistanceToSTOP = $stop_pos-$start_pos;

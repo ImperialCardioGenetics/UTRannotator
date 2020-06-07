@@ -32,12 +32,13 @@ package UTRannotator;
 require "src/uSTOP_lost.pl";
 require "src/uAUG_lost.pl";
 require "src/uAUG_gained.pl";
+require "src/uSTOP_gained.pl";
 require "src/uframeshift.pl";
 require "src/five_prime_UTR_utils.pl";
 
 use base qw(Bio::EnsEMBL::Variation::Utils::BaseVepPlugin);
-use warnings;
 use strict;
+
 
 sub feature_types {
         return ['Transcript'];
@@ -148,6 +149,7 @@ sub feature_types {
 	my %uAUG_gained = %{$self->uAUG_gained(\%variant,\%UTR_info)};
   	my %uSTOP_lost = %{$self->uSTOP_lost(\%variant,\%UTR_info)};
   	my %uAUG_lost = %{$self->uAUG_lost(\%variant,\%UTR_info)};
+	my %uSTOP_gained = %{$self->uSTOP_gained(\%variant,\%UTR_info)};
     my %uFrameshift = %{$self->uFrameshift(\%variant,\%UTR_info)};
 
 
@@ -156,6 +158,7 @@ sub feature_types {
     "uAUG_gained" => $uAUG_gained{'uAUG_gained_flag'},
     "uSTOP_lost" => $uSTOP_lost{'uSTOP_lost_flag'},
     "uAUG_lost" => $uAUG_lost{'uAUG_lost_flag'},
+	"uSTOP_gained" => $uSTOP_gained{'uSTOP_gained_flag'},
     "uFrameshift" =>$uFrameshift{'uFrameShift_flag'},
     );
 
@@ -164,7 +167,8 @@ sub feature_types {
     "uAUG_gained" => $uAUG_gained{"uAUG_gained_effect"},
     "uSTOP_lost" => $uSTOP_lost{"uSTOP_lost_effect"},
     "uAUG_lost" => $uAUG_lost{"uAUG_lost_effect"},
-    "uFrameshift" =>$uFrameshift{'uFrameShift_effect'},
+	"uSTOP_gained" => $uSTOP_gained{'uSTOP_gained_effect'},
+	"uFrameshift" =>$uFrameshift{'uFrameShift_effect'},
     );
 
 
