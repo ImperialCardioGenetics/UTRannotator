@@ -6,7 +6,7 @@ Currently, it will annotate whether a small variation (1-5bp) including SNVs, in
  - [uAUG_gained](#uaug-gained): creating a new start codon AUG  
  - [uAUG_lost](#uaug-lost): removing an existing start codon AUG  
  - [uSTOP_lost](#ustop-lost): removing the stop codon of an existing upstream ORF  
- - [uSTOP gained] (#ustop-gained): creating a new stop codon within an existing upstream ORF
+ - [uSTOP gained](#ustop-gained): creating a new stop codon within an existing upstream ORF
  - [uFrameShift](#uframeshift): creating a frameshift mutation in an existing upstream ORF   
  
 Highlights: 
