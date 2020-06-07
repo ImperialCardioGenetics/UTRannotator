@@ -153,7 +153,7 @@ If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be con
 | Annotations                     | Data type | Description                                                                                                   |
 |---------------------------------|-----------|---------------------------------------------------------------------------------------------------------------|
 | uSTOP_gained_ref_StartDistanceToCDS              | Integer    | The distance between the uAUG of the disrupting uORF to CDS                                           |
-| uSTOP_gained_ref_type | String   | the type of uORF being disrupted - any of the following: uORF, inframe_oORF,OutOfFrame_oORF                                           |
+| uSTOP_gained_ref_type | String   | The type of uORF being disrupted - any of the following: uORF, inframe_oORF,OutOfFrame_oORF                                           |
 | uSTOP_gained_KozakContext        | String    | The Kozak context sequence of the disrupted uORF                                                              |
 | uSTOP_gained_KozakStrength       | String    | The Kozak strength of the disrupted uORF, described by one of the following values: Weak, Moderate or Strong.   |
 | uSTOP_gained_newSTOPDistanceToCDS         | String    | The distance between the gained uSTOP to the start of the CDS                               |
