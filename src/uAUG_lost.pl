@@ -142,10 +142,16 @@ sub uAUG_lost{
 
                 my @overlapping_seq = split //, $UTR_info->{seq}.$UTR_info->{cds_seq};
                 my %existing_overlapping_uORF = %{$self->existing_uORF(\@overlapping_seq)};
+                if(exists($existing_overlapping_uORF{$start_pos})){
+
                 my @stop_pos_array = sort{$a<=>$b}@{$existing_overlapping_uORF{$start_pos}};
                 my $stop_pos = $stop_pos_array[0];
-
                 $uAUG_lost_DistanceToSTOP = $stop_pos-$start_pos;
+
+                }else{
+                $uAUG_lost_DistanceToSTOP = "NA"
+                }
+
 
                 my %utr_pos = %{$self->chr_position($UTR_info)};
                 my $start_chr_pos = $utr_pos{$start_pos};

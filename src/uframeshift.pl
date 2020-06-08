@@ -153,8 +153,6 @@ sub uFrameshift{
                 my @alt_overlapping_seq = split //, $mut_utr_seq.$UTR_info->{cds_seq};
                 my %alt_existing_oORF = %{$self->existing_uORF(\@alt_overlapping_seq)};
 
-
-
                 if (exists($mut_uORF{$start_pos})){
                 $uFrameshift_alt_type = "uORF";
                 } #if there is no alternative stop codon

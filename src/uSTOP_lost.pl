@@ -149,7 +149,7 @@ sub uSTOP_lost{
                 else{
                     $uSTOP_lost_AltStop = "False";
                 #    $uSTOP_AltStopDistance = "-";
-                    $uSTOP_lost_AltStopDistanceToCDS = "-";
+                    $uSTOP_lost_AltStopDistanceToCDS = "NA";
                 }
             	if (($length-$start_pos) % 3){
                 	$uSTOP_lost_FrameWithCDS = "outOfFrame";
