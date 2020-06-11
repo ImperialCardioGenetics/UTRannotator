@@ -180,8 +180,8 @@ sub uSTOP_lost{
                 "uSTOP_lost_Evidence" => $uSTOP_lost_evidence,
 	             );
 
-                $output_flag = $output_flag? $output_flag."|"."uSTOP_lost":"uSTOP_lost";
-                $output_effects = $output_effects? $output_effects."|".$self->transform_hash_to_string(\%uORF_effect):$self->transform_hash_to_string(\%uORF_effect);
+                $output_flag = $output_flag? $output_flag."&"."uSTOP_lost":"uSTOP_lost";
+                $output_effects = $output_effects? $output_effects."&".$self->transform_hash_to_string(\%uORF_effect):$self->transform_hash_to_string(\%uORF_effect);
 
             }
 

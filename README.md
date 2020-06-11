@@ -60,11 +60,15 @@ e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/UTRannotator` to `~/.bash
 To run the plugin with VEP, you could the following command line:    
   
 `vep -i test.vcf --tab -plugin UTRannotator -o test.output`  
-  
-Currently, the output format is designed for tab-delimited output. 
 
 To be noticed, it's necessary to add option `--minimal` to transform the alleles into minimal representations if it hasn't been transformed beforehand. We have found that this option is necessary especially for variants represented with rs IDs from dbSNP.   
   
+## Output format 
+
+Currently, the output format supports [default VEP output format](https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#defaultout), [tab-delimited output](https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#tab) and [VCF output](https://www.ensembl.org/info/docs/tools/vep/vep_formats.html#vcfout). 
+
+If a variant disrupts multiple uORFs, we will output the annotation for each uORF. The output for each uORF will be concatenated with a logical and symbol `&`; 
+
 ## Optional Usage  
   
 The plugin could also check whether an input variant disrupts a verified translated uORF.  
@@ -96,27 +100,40 @@ For example:
   
 # Annotation Output  
   
-The output annotation from the plugin includes 5 columns:   
+The output annotation from the plugin includes 5 fields:   
   
-For any 5'UTR variants, the plugin will first output the number of existing subtype uORFs in the 5'UTR  
+For any 5'UTR variants, the plugin will first output the number of existing subtype uORFs in the 5'UTR:  
+
+**existing_InFrame_oORFs** : The number of existing inframe overlapping ORFs (inFrame_oORF) already within the 5 prime UTR 
+
+**existing_OutOfFrame_oORFs** : The number of existing out-of-frame overlapping ORFs (OutOfFrame_oORF) already within the 5 prime UTR 
+
+**existing_uORFs** : The number of existing uORFs with a stop codon within the 5 prime UTR  
+
+If this 5'UTR is uORF-perturbing, the plugin will output the consequence and detailed annotation of each consequence. Otherwise it will output `-` :   
+
+**five_prime_UTR_variant_annotation** : Output the annotation of a given 5 prime UTR variant.
   
-**Column 1** - existing_InFrame_oORFs: The number of existing inframe overlapping ORFs (inFrame_oORF) already within the 5 prime UTR 
+**five_prime_UTR_variant_consequence** : Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_gained, uSTOP_lost, uFrameshift.
 
-**Column 2** - existing_OutOfFrame_oORFs: The number of existing out-of-frame overlapping ORFs (OutOfFrame_oORF) already within the 5 prime UTR 
+If a 5'UTR variant perturbs multiple uORFs, the annotation of each uORF will be concatenated with a logical and symbol `&` for fields **five_prime_UTR_variant_consequence** and **five_prime_UTR_variant_annotation**. 
 
-**Column 3** - existing_uORFs: The number of existing uORFs with a stop codon within the 5 prime UTR  `
+## Example output (default VEP output)
 
-If this 5'UTR is uORF-perturbing, the plugin will output the consequence and detailed annotation of each consequence:   
-  
-**Column 4** - five_prime_UTR_variant_consequence: Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_lost, uFrameshift
 
-**Column 5** - five_prime_UTR_variant_annotation: Output the annotation of a given 5 prime UTR variant 
+`#Uploaded_variation     Location        Allele  Gene    Feature Feature_type    Consequence     cDNA_position   CDS_position    Protein_position        Amino_acids     Codons  Existing_variation      Extra`
 
-If a 5'UTR variant perturbs multiple uORFs, the output for each uORF will be concatenated with a vertical bar `|`;   
+`5_36877039_CC/A 5:36877039-36877040     A       25836   NM_015384.5     Transcript      5_prime_UTR_variant     169-170 -       -       -
+       -       -       IMPACT=MODIFIER;STRAND=1;REFSEQ_MATCH=rseq_mrna_match;existing_InFrame_oORFs=0;existing_OutOfFrame_oORFs=0;existing_uORFs=5;five_prime_UTR_variant_annotation=uFrameShift_Evidence:False,uFrameShift_KozakContext:GCGATGC,uFrameShift_KozakStrength:Moderate,uFrameShift_alt_type:uORF,uFrameShift_alt_type_length:189,uFrameShift_ref_StartDistanceToCDS:324,uFrameShift_ref_type:uORF,uFrameShift_ref_type_length:15;five_prime_UTR_variant_consequence=uFrameShift`
+
   
 ## The detailed annotation for each consequence  
+
+
+
+
   
- ### uAUG gained
+### uAUG gained
 | Annotations                 | Data type | Description                                                                                                                                                                                                        |
 |-----------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | uAUG_gained_type            | String    | The type of of 5’ UTR ORF created, described by one of the following: uORF(with a stop codon in 5’UTR), inframe_oORF (inframe and overlapping  with CDS),OutOfFrame_oORF (out of frame and overlapping with CDS)   |

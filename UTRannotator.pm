@@ -182,10 +182,11 @@ sub feature_types {
         }
     };
 
-
+	if(!@output_five_prime_flag){@output_five_prime_flag=("-");};
+	if(!@output_five_prime_annotation){@output_five_prime_annotation=("-");};
     my %utr_effect = (
-    "five_prime_UTR_variant_consequence" => (join "|", @output_five_prime_flag),
-    "five_prime_UTR_variant_annotation" => (join "|", @output_five_prime_annotation),
+    "five_prime_UTR_variant_consequence" => (join "&", @output_five_prime_flag),
+    "five_prime_UTR_variant_annotation" => (join "&", @output_five_prime_annotation),
     );
 
   	my $existing_uORF_num = $self->count_number_ATG($five_prime_seq);
