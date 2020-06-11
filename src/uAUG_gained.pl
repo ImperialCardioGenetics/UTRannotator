@@ -137,7 +137,7 @@ sub uAUG_gained{
         "uAUG_gained_DistanceToCDS" => $uAUG_gained_DistanceToCDS,
         "uAUG_gained_type" => $uAUG_gained_type,
         "uAUG_gained_DistanceToStop" => $uAUG_gained_DistanceToStop,
-        "uAUG_gained_DistanceFromCap" => $uAUG_gained_DistanceFromCap,
+        "uAUG_gained_CapDistanceToStart" => $uAUG_gained_DistanceFromCap,
       );
 
        $output_flag = "uAUG_gained";

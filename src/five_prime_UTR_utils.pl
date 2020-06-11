@@ -116,6 +116,7 @@ sub count_number_ATG{
   	my $length = @sequence;
 
 	my @met_pos;
+    if($length){
 	for (my $seq_n=0; $seq_n<$length; $seq_n++){
 	if ((($sequence[$seq_n] eq 'T')&&($sequence[$seq_n+1] eq 'A')&&($sequence[$seq_n+2] eq 'A'))
 	||(($sequence[$seq_n] eq 'T')&&($sequence[$seq_n+1] eq 'A')&&($sequence[$seq_n+2] eq 'G'))
@@ -123,7 +124,7 @@ sub count_number_ATG{
 				{
 					push @met_pos,$seq_n;
 				}
-	}
+	}}
 	#return a reference
 	return \@met_pos;
 }
@@ -182,9 +183,12 @@ sub count_number_ATG{
 
     my $output_str = "";
     foreach my $key (sort keys %hash){
-    $output_str = $output_str.$key."=".$hash{$key}.";";
+    $output_str = $output_str.$key.":".$hash{$key}.",";
+
 
     };
+    if($output_str){chop($output_str);
+    }
     return $output_str;
 
 

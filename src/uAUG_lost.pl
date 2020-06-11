@@ -168,7 +168,7 @@ sub uAUG_lost{
 
                 my %uORF_effect = (
                 "uAUG_lost_type" => $uAUG_lost_type,
-                "uAUG_lost_DistanceFromCap" =>$start_pos,
+                "uAUG_lost_CapDistanceToStart" =>$start_pos,
                 "uAUG_lost_DistanceToCDS" => $uAUG_lost_DistanceToCDS,
                 "uAUG_lost_DistanceToStop" => $uAUG_lost_DistanceToSTOP,
                 "uAUG_lost_KozakContext" => $uAUG_lost_KozakContext,

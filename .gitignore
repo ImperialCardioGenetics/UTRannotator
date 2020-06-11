@@ -1,2 +1,7 @@
 
 test/test.output_summary.html
+test/submit_test.vcf.sh
+test/test_output.vcf
+test/test_output.vcf_summary.html
+test/test.vep_summary.html
+test/test.output_warnings.txt

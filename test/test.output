@@ -1,14 +1,14 @@
 ## ENSEMBL VARIANT EFFECT PREDICTOR v100.1
-## Output produced at 2020-06-09 00:53:16
+## Output produced at 2020-06-11 14:20:37
 ## Connected to homo_sapiens_core_100_37 on ensembldb.ensembl.org
 ## Using API version 100, DB version 100
 ## ensembl-variation version 100.b220ff4
-## ensembl-funcgen version 100.f0c3948
-## ensembl-io version 100.f87ae4f
 ## ensembl version 100.7e964b7
-## genebuild version 2011-04
+## ensembl-io version 100.f87ae4f
+## ensembl-funcgen version 100.f0c3948
 ## gencode version GENCODE 19
 ## assembly version GRCh37.p13
+## genebuild version 2011-04
 ## Column descriptions:
 ## Uploaded_variation : Identifier of uploaded variant
 ## Location : Location of variant in standard coordinate format (chr:start or chr:start-end)
@@ -33,14 +33,14 @@
 ## five_prime_UTR_variant_annotation : Output the annotation of a given 5 prime UTR variant
 ## five_prime_UTR_variant_consequence : Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_lost or uFrameshift
 #Uploaded_variation	Location	Allele	Gene	Feature	Feature_type	Consequence	cDNA_position	CDS_position	Protein_position	Amino_acids	Codons	Existing_variation	IMPACT	DISTANCE	STRAND	FLAGS	existing_InFrame_oORFs	existing_OutOfFrame_oORFs	existing_uORFs	five_prime_UTR_variant_annotation	five_prime_UTR_variant_consequence
-5_36877039_CC/A	5:36877039-36877040	A	ENSG00000164190	ENST00000282516	Transcript	5_prime_UTR_variant	179-180	-	-	-	-	-	MODIFIER	-	1	-	0	0	5	uFrameShift_Evidence=False;uFrameShift_KozakContext=GCGATGC;uFrameShift_KozakStrength=Moderate;uFrameShift_alt_type=uORF;uFrameShift_alt_type_length=189;uFrameShift_ref_StartDistanceToCDS=324;uFrameShift_ref_type=uORF;uFrameShift_ref_type_length=15;	uFrameShift
-5_36877039_CC/A	5:36877039-36877040	A	ENSG00000164190	ENST00000448238	Transcript	5_prime_UTR_variant	148-149	-	-	-	-	-	MODIFIER	-	1	-	0	0	5	uFrameShift_Evidence=False;uFrameShift_KozakContext=GCGATGC;uFrameShift_KozakStrength=Moderate;uFrameShift_alt_type=uORF;uFrameShift_alt_type_length=189;uFrameShift_ref_StartDistanceToCDS=324;uFrameShift_ref_type=uORF;uFrameShift_ref_type_length=15;	uFrameShift
-8_21988220_A/G	8:21988220	G	ENSG00000168453	ENST00000312841	Transcript	5_prime_UTR_variant	346	-	-	-	-	-	MODIFIER	-	-1	-	0	1	3	uAUG_lost_DistanceFromCap=344;uAUG_lost_DistanceToCDS=321;uAUG_lost_DistanceToStop=102;uAUG_lost_Evidence=True;uAUG_lost_KozakContext=CCCATGG;uAUG_lost_KozakStrength=Moderate;uAUG_lost_type=uORF;	uAUG_lost
-8_21988220_A/G	8:21988220	G	ENSG00000168453	ENST00000381418	Transcript	5_prime_UTR_variant	1162	-	-	-	-	-	MODIFIER	-	-1	-	0	1	10	uAUG_lost_DistanceFromCap=1160;uAUG_lost_DistanceToCDS=321;uAUG_lost_DistanceToStop=102;uAUG_lost_Evidence=True;uAUG_lost_KozakContext=CCCATGG;uAUG_lost_KozakStrength=Moderate;uAUG_lost_type=uORF;	uAUG_lost
+5_36877039_CC/A	5:36877039-36877040	A	ENSG00000164190	ENST00000282516	Transcript	5_prime_UTR_variant	179-180	-	-	-	-	-	MODIFIER	-	1	-	0	0	5	uFrameShift_Evidence:False,uFrameShift_KozakContext:GCGATGC,uFrameShift_KozakStrength:Moderate,uFrameShift_alt_type:uORF,uFrameShift_alt_type_length:189,uFrameShift_ref_StartDistanceToCDS:324,uFrameShift_ref_type:uORF,uFrameShift_ref_type_length:15	uFrameShift
+5_36877039_CC/A	5:36877039-36877040	A	ENSG00000164190	ENST00000448238	Transcript	5_prime_UTR_variant	148-149	-	-	-	-	-	MODIFIER	-	1	-	0	0	5	uFrameShift_Evidence:False,uFrameShift_KozakContext:GCGATGC,uFrameShift_KozakStrength:Moderate,uFrameShift_alt_type:uORF,uFrameShift_alt_type_length:189,uFrameShift_ref_StartDistanceToCDS:324,uFrameShift_ref_type:uORF,uFrameShift_ref_type_length:15	uFrameShift
+8_21988220_A/G	8:21988220	G	ENSG00000168453	ENST00000312841	Transcript	5_prime_UTR_variant	346	-	-	-	-	-	MODIFIER	-	-1	-	0	1	3	uAUG_lost_CapDistanceToStart:344,uAUG_lost_DistanceToCDS:321,uAUG_lost_DistanceToStop:102,uAUG_lost_Evidence:True,uAUG_lost_KozakContext:CCCATGG,uAUG_lost_KozakStrength:Moderate,uAUG_lost_type:uORF	uAUG_lost
+8_21988220_A/G	8:21988220	G	ENSG00000168453	ENST00000381418	Transcript	5_prime_UTR_variant	1162	-	-	-	-	-	MODIFIER	-	-1	-	0	1	10	uAUG_lost_CapDistanceToStart:1160,uAUG_lost_DistanceToCDS:321,uAUG_lost_DistanceToStop:102,uAUG_lost_Evidence:True,uAUG_lost_KozakContext:CCCATGG,uAUG_lost_KozakStrength:Moderate,uAUG_lost_type:uORF	uAUG_lost
 8_21988220_A/G	8:21988220	G	ENSG00000168453	ENST00000518377	Transcript	non_coding_transcript_exon_variant	468	-	-	-	-	-	MODIFIER	-	-1	-	-	-	-	-	-
 8_21988220_A/G	8:21988220	G	ENSG00000168453	ENST00000519619	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	2591	-1	-	-	-	-	-	-
 8_21988220_A/G	8:21988220	G	ENSG00000168453	ENST00000522759	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	26	-1	-	-	-	-	-	-
-1_113498814_C/T	1:113498814	T	ENSG00000155380	ENST00000369626	Transcript	5_prime_UTR_variant	162	-	-	-	-	-	MODIFIER	-	-1	-	0	0	2	uAUG_gained_DistanceFromCap=161;uAUG_gained_DistanceToCDS=202;uAUG_gained_DistanceToStop=24;uAUG_gained_KozakContext=AAAATGG;uAUG_gained_KozakStrength=Strong;uAUG_gained_type=uORF;	uAUG_gained
+1_113498814_C/T	1:113498814	T	ENSG00000155380	ENST00000369626	Transcript	5_prime_UTR_variant	162	-	-	-	-	-	MODIFIER	-	-1	-	0	0	2	uAUG_gained_CapDistanceToStart:161,uAUG_gained_DistanceToCDS:202,uAUG_gained_DistanceToStop:24,uAUG_gained_KozakContext:AAAATGG,uAUG_gained_KozakStrength:Strong,uAUG_gained_type:uORF	uAUG_gained
 1_113498814_C/T	1:113498814	T	ENSG00000226419	ENST00000416193	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	223	1	-	-	-	-	-	-
 1_113498814_C/T	1:113498814	T	ENSG00000226419	ENST00000420168	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	328	1	-	-	-	-	-	-
 1_113498814_C/T	1:113498814	T	ENSG00000226419	ENST00000428411	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	269	1	-	-	-	-	-	-
@@ -50,25 +50,25 @@
 1_113498814_C/T	1:113498814	T	ENSG00000155380	ENST00000458229	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	129	-1	cds_end_NF	-	-	-	-	-
 1_113498814_C/T	1:113498814	T	ENSG00000155380	ENST00000478835	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	11	-1	-	-	-	-	-	-
 1_113498814_C/T	1:113498814	T	ENSG00000155380	ENST00000538576	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	129	-1	-	-	-	-	-	-
-11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000241001	Transcript	5_prime_UTR_variant	224-225	-	-	-	-	-	MODIFIER	-	-1	-	0	1	3	uSTOP_lost_AltStop=False;uSTOP_lost_AltStopDistanceToCDS=NA;uSTOP_lost_Evidence=False;uSTOP_lost_FrameWithCDS=outOfFrame;uSTOP_lost_KozakContext=AGGATGC;uSTOP_lost_KozakStrength=Moderate;	uSTOP_lost
+11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000241001	Transcript	5_prime_UTR_variant	224-225	-	-	-	-	-	MODIFIER	-	-1	-	0	1	3	uSTOP_lost_AltStop:False,uSTOP_lost_AltStopDistanceToCDS:NA,uSTOP_lost_Evidence:False,uSTOP_lost_FrameWithCDS:outOfFrame,uSTOP_lost_KozakContext:AGGATGC,uSTOP_lost_KozakStrength:Moderate	uSTOP_lost
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000379107	Transcript	5_prime_UTR_variant	411-412	-	-	-	-	-	MODIFIER	-	-1	-	0	1	0		
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000379109	Transcript	5_prime_UTR_variant	773-774	-	-	-	-	-	MODIFIER	-	-1	cds_end_NF	0	1	1		
-11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000379111	Transcript	5_prime_UTR_variant	229-230	-	-	-	-	-	MODIFIER	-	-1	-	0	1	1	uSTOP_lost_AltStop=False;uSTOP_lost_AltStopDistanceToCDS=NA;uSTOP_lost_Evidence=False;uSTOP_lost_FrameWithCDS=outOfFrame;uSTOP_lost_KozakContext=AGGATGC;uSTOP_lost_KozakStrength=Moderate;	uSTOP_lost
-11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000379115	Transcript	5_prime_UTR_variant	318-319	-	-	-	-	-	MODIFIER	-	-1	-	0	1	4	uSTOP_lost_AltStop=False;uSTOP_lost_AltStopDistanceToCDS=NA;uSTOP_lost_Evidence=False;uSTOP_lost_FrameWithCDS=outOfFrame;uSTOP_lost_KozakContext=AGGATGC;uSTOP_lost_KozakStrength=Moderate;	uSTOP_lost
-11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000379123	Transcript	5_prime_UTR_variant	762-763	-	-	-	-	-	MODIFIER	-	-1	-	0	1	6	uSTOP_lost_AltStop=False;uSTOP_lost_AltStopDistanceToCDS=NA;uSTOP_lost_Evidence=False;uSTOP_lost_FrameWithCDS=outOfFrame;uSTOP_lost_KozakContext=AGGATGC;uSTOP_lost_KozakStrength=Moderate;	uSTOP_lost
+11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000379111	Transcript	5_prime_UTR_variant	229-230	-	-	-	-	-	MODIFIER	-	-1	-	0	1	1	uSTOP_lost_AltStop:False,uSTOP_lost_AltStopDistanceToCDS:NA,uSTOP_lost_Evidence:False,uSTOP_lost_FrameWithCDS:outOfFrame,uSTOP_lost_KozakContext:AGGATGC,uSTOP_lost_KozakStrength:Moderate	uSTOP_lost
+11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000379115	Transcript	5_prime_UTR_variant	318-319	-	-	-	-	-	MODIFIER	-	-1	-	0	1	4	uSTOP_lost_AltStop:False,uSTOP_lost_AltStopDistanceToCDS:NA,uSTOP_lost_Evidence:False,uSTOP_lost_FrameWithCDS:outOfFrame,uSTOP_lost_KozakContext:AGGATGC,uSTOP_lost_KozakStrength:Moderate	uSTOP_lost
+11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000379123	Transcript	5_prime_UTR_variant	762-763	-	-	-	-	-	MODIFIER	-	-1	-	0	1	6	uSTOP_lost_AltStop:False,uSTOP_lost_AltStopDistanceToCDS:NA,uSTOP_lost_Evidence:False,uSTOP_lost_FrameWithCDS:outOfFrame,uSTOP_lost_KozakContext:AGGATGC,uSTOP_lost_KozakStrength:Moderate	uSTOP_lost
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000379129	Transcript	5_prime_UTR_variant	164-165	-	-	-	-	-	MODIFIER	-	-1	-	0	1	0		
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000379132	Transcript	5_prime_UTR_variant	164-165	-	-	-	-	-	MODIFIER	-	-1	-	0	1	0		
-11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000419022	Transcript	5_prime_UTR_variant	352-353	-	-	-	-	-	MODIFIER	-	-1	-	0	1	1	uSTOP_lost_AltStop=False;uSTOP_lost_AltStopDistanceToCDS=NA;uSTOP_lost_Evidence=False;uSTOP_lost_FrameWithCDS=outOfFrame;uSTOP_lost_KozakContext=AGGATGC;uSTOP_lost_KozakStrength=Moderate;	uSTOP_lost
-11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000423822	Transcript	5_prime_UTR_variant	265-266	-	-	-	-	-	MODIFIER	-	-1	cds_end_NF	0	1	1	uSTOP_lost_AltStop=False;uSTOP_lost_AltStopDistanceToCDS=NA;uSTOP_lost_Evidence=False;uSTOP_lost_FrameWithCDS=outOfFrame;uSTOP_lost_KozakContext=AGGATGC;uSTOP_lost_KozakStrength=Moderate;	uSTOP_lost
-11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000438681	Transcript	5_prime_UTR_variant	222-223	-	-	-	-	-	MODIFIER	-	-1	cds_end_NF	0	1	1	uSTOP_lost_AltStop=False;uSTOP_lost_AltStopDistanceToCDS=NA;uSTOP_lost_Evidence=False;uSTOP_lost_FrameWithCDS=outOfFrame;uSTOP_lost_KozakContext=AGGATGC;uSTOP_lost_KozakStrength=Moderate;	uSTOP_lost
+11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000419022	Transcript	5_prime_UTR_variant	352-353	-	-	-	-	-	MODIFIER	-	-1	-	0	1	1	uSTOP_lost_AltStop:False,uSTOP_lost_AltStopDistanceToCDS:NA,uSTOP_lost_Evidence:False,uSTOP_lost_FrameWithCDS:outOfFrame,uSTOP_lost_KozakContext:AGGATGC,uSTOP_lost_KozakStrength:Moderate	uSTOP_lost
+11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000423822	Transcript	5_prime_UTR_variant	265-266	-	-	-	-	-	MODIFIER	-	-1	cds_end_NF	0	1	1	uSTOP_lost_AltStop:False,uSTOP_lost_AltStopDistanceToCDS:NA,uSTOP_lost_Evidence:False,uSTOP_lost_FrameWithCDS:outOfFrame,uSTOP_lost_KozakContext:AGGATGC,uSTOP_lost_KozakStrength:Moderate	uSTOP_lost
+11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000438681	Transcript	5_prime_UTR_variant	222-223	-	-	-	-	-	MODIFIER	-	-1	cds_end_NF	0	1	1	uSTOP_lost_AltStop:False,uSTOP_lost_AltStopDistanceToCDS:NA,uSTOP_lost_Evidence:False,uSTOP_lost_FrameWithCDS:outOfFrame,uSTOP_lost_KozakContext:AGGATGC,uSTOP_lost_KozakStrength:Moderate	uSTOP_lost
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000455099	Transcript	5_prime_UTR_variant	7-8	-	-	-	-	-	MODIFIER	-	-1	cds_end_NF	0	1	0		
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000464174	Transcript	intron_variant,non_coding_transcript_variant	-	-	-	-	-	-	MODIFIER	-	-1	-	-	-	-	-	-
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000470027	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	2868	-1	-	-	-	-	-	-
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000471303	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	2870	-1	-	-	-	-	-	-
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000481563	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	2889	-1	-	-	-	-	-	-
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000494377	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	3581	-1	-	-	-	-	-	-
-11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000524853	Transcript	5_prime_UTR_variant	284-285	-	-	-	-	-	MODIFIER	-	-1	cds_end_NF	0	1	2	uSTOP_lost_AltStop=False;uSTOP_lost_AltStopDistanceToCDS=NA;uSTOP_lost_Evidence=False;uSTOP_lost_FrameWithCDS=outOfFrame;uSTOP_lost_KozakContext=AGGATGC;uSTOP_lost_KozakStrength=Moderate;	uSTOP_lost
-11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000525535	Transcript	5_prime_UTR_variant	554-555	-	-	-	-	-	MODIFIER	-	-1	cds_end_NF	0	1	2	uSTOP_lost_AltStop=False;uSTOP_lost_AltStopDistanceToCDS=NA;uSTOP_lost_Evidence=False;uSTOP_lost_FrameWithCDS=outOfFrame;uSTOP_lost_KozakContext=AGGATGC;uSTOP_lost_KozakStrength=Moderate;	uSTOP_lost
+11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000524853	Transcript	5_prime_UTR_variant	284-285	-	-	-	-	-	MODIFIER	-	-1	cds_end_NF	0	1	2	uSTOP_lost_AltStop:False,uSTOP_lost_AltStopDistanceToCDS:NA,uSTOP_lost_Evidence:False,uSTOP_lost_FrameWithCDS:outOfFrame,uSTOP_lost_KozakContext:AGGATGC,uSTOP_lost_KozakStrength:Moderate	uSTOP_lost
+11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000525535	Transcript	5_prime_UTR_variant	554-555	-	-	-	-	-	MODIFIER	-	-1	cds_end_NF	0	1	2	uSTOP_lost_AltStop:False,uSTOP_lost_AltStopDistanceToCDS:NA,uSTOP_lost_Evidence:False,uSTOP_lost_FrameWithCDS:outOfFrame,uSTOP_lost_KozakContext:AGGATGC,uSTOP_lost_KozakStrength:Moderate	uSTOP_lost
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000527769	Transcript	non_coding_transcript_exon_variant	302-303	-	-	-	-	-	MODIFIER	-	-1	-	-	-	-	-	-
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000530714	Transcript	upstream_gene_variant	-	-	-	-	-	-	MODIFIER	3241	-1	-	-	-	-	-	-
 11_31828462_AA/-	11:31828462-31828463	-	ENSG00000007372	ENST00000532175	Transcript	non_coding_transcript_exon_variant	339-340	-	-	-	-	-	MODIFIER	-	-1	-	-	-	-	-	-
