@@ -132,7 +132,7 @@ If a 5'UTR variant perturbs multiple uORFs, the annotation of each uORF will be 
 
 ### uAUG gained
 | Annotations                 | Data type | Description                                                                                                                                                                                                        |
-|-----------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-----------------------------|:-----------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | uAUG_gained_type            | String    | The type of of 5’ UTR ORF created, described by one of the following: uORF(with a stop codon in 5’UTR), inframe_oORF (inframe and overlapping  with CDS),OutOfFrame_oORF (out of frame and overlapping with CDS)   |
 | uAUG_gained_KozakContext    | String    | The Kozak context sequence of the gained uAUG                                                                                                                                                                      |
 | uAUG_gained_KozakStrength   | String    | The Kozak strength of the gained uAUG, described by one of the following values: Weak, Moderate or Strong.                                                                                                           |
