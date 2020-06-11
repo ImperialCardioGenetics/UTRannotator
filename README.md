@@ -130,9 +130,6 @@ If a 5'UTR variant perturbs multiple uORFs, the annotation of each uORF will be 
 ## The detailed annotation for each consequence  
 
 
-
-
-  
 ### uAUG gained
 | Annotations                 | Data type | Description                                                                                                                                                                                                        |
 |-----------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
