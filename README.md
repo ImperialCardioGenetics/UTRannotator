@@ -137,7 +137,7 @@ If a 5'UTR variant perturbs multiple uORFs, the annotation of each uORF will be 
 | uAUG_gained_KozakContext    | String    | The Kozak context sequence of the gained uAUG                                                                                                                                                                      |
 | uAUG_gained_KozakStrength   | String    | The Kozak strength of the gained uAUG, described by one of the following values: Weak, Moderate or Strong.                                                                                                           |
 | uAUG_gained_DistanceToCDS   | Integer   | The distance (number of nucleotides) between the gained  uAUG to CDS                                                                                                                                               |
-| uAUG_gained_DistanceFromCap | Integer   | The distance (number of nucleotides) between the gained uAUG to the start of 5’UTR                                                                                                                                 |
+| uAUG_gained_CapDistanceToStart | Integer   | The distance (number of nucleotides) between the gained uAUG to the start of 5’UTR                                                                                                                                 |
 | uAUG_gained_DistanceToSTOP  | Integer   | The distance (number of nucleotides) between the gained uAUG to STOP codon (scanning through both the 5’UTR and its downstream CDS). If there is no STOP codon found, it would output NA.                          |
 
 ### uAUG lost
@@ -147,6 +147,7 @@ If a 5'UTR variant perturbs multiple uORFs, the annotation of each uORF will be 
 | uAUG_lost_type           | String    | The type of 5’ UTR ORF lost, described by one of the following: uORF,  inframe_oORF or OutOfFrame_oORF                                          |
 | uAUG_lost_KozakContext   | String    | The Kozak context sequence of the lost uAUG                                                                                                     |
 | uAUG_lost_KozakStrength  | String    | The Kozak strength of the lost uAUG, described by one of the following values: Weak, Moderate or Strong.                                          |
+| uAUG_lost_CapDistanceToStart | String | The distance between the lost uAUG to the start of the 5'UTR |
 | uAUG_lost_DistanceToCDS  | Integer   | The distance (number of nucleotides) between the lost uAUG to CDS                                                                               |
 | uAUG_lost_DistanceToSTOP | Integer   | The distance (number of nucleotides) between the lost uAUG to the nearest stop codon (scanning through both the 5’UTR and its downstream CDS). Output NA if there is no stop codon. |
 | uAUG_lost_evidence       | Boolean   | Whether the uORF disrupted by the lost uAUG has any translation evidence. Output NA if no evidence file provided                                                                      |
