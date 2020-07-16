@@ -61,7 +61,7 @@ To run the plugin with VEP, you could the following command line:
   
 `vep -i test.vcf --tab -plugin UTRannotator -o test.output`  
 
-To be noticed, it's necessary to add option `--minimal` to transform the alleles into minimal representations if it hasn't been transformed beforehand. We have found that this option is necessary especially for variants represented with rs IDs from dbSNP.   
+Note, it's necessary to add option `--minimal` to transform the alleles into minimal representations if it hasn't been transformed beforehand, especially for variants represented with rs IDs from dbSNP.   
   
 ## Output format 
 
