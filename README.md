@@ -61,7 +61,7 @@ To run the plugin with VEP, you could the following command line:
   
 `vep -i test.vcf --tab -plugin UTRannotator -o test.output`  
 
-To be noticed, it's necessary to add option `--minimal` to transform the alleles into minimal representations if it hasn't been transformed beforehand. We have found that this option is necessary especially for variants represented with rs IDs from dbSNP.   
+Note, it's necessary to add option `--minimal` to transform the alleles into minimal representations if it hasn't been transformed beforehand, especially for variants represented with rs IDs from dbSNP.   
   
 ## Output format 
 
@@ -100,21 +100,21 @@ For example:
   
 # Annotation Output  
   
-The output annotation from the plugin includes 5 fields:   
+The output annotation from the plugin includes **5 fields**:   
   
 For any 5'UTR variants, the plugin will first output the number of existing subtype uORFs in the 5'UTR:  
 
-**existing_InFrame_oORFs** : The number of existing inframe overlapping ORFs (inFrame_oORF) already within the 5 prime UTR 
+**Field 1 - existing_InFrame_oORFs** : The number of existing inframe overlapping ORFs (inFrame_oORF) already within the 5 prime UTR 
 
-**existing_OutOfFrame_oORFs** : The number of existing out-of-frame overlapping ORFs (OutOfFrame_oORF) already within the 5 prime UTR 
+**Field 2 - existing_OutOfFrame_oORFs** : The number of existing out-of-frame overlapping ORFs (OutOfFrame_oORF) already within the 5 prime UTR 
 
-**existing_uORFs** : The number of existing uORFs with a stop codon within the 5 prime UTR  
+**Field 3 - existing_uORFs** : The number of existing uORFs with a stop codon within the 5 prime UTR  
 
 If this 5'UTR is uORF-perturbing, the plugin will output the consequence and detailed annotation of each consequence. Otherwise it will output `-` :   
 
-**five_prime_UTR_variant_annotation** : Output the annotation of a given 5 prime UTR variant.
+**Field 4 - five_prime_UTR_variant_annotation** : Output the annotation of a given 5 prime UTR variant.
   
-**five_prime_UTR_variant_consequence** : Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_gained, uSTOP_lost, uFrameshift.
+**Field 5 - five_prime_UTR_variant_consequence** : Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_gained, uSTOP_lost, uFrameshift.
 
 If a 5'UTR variant perturbs multiple uORFs, the annotation of each uORF will be concatenated with a logical and symbol `&` for fields **five_prime_UTR_variant_consequence** and **five_prime_UTR_variant_annotation**. 
 
@@ -129,10 +129,10 @@ If a 5'UTR variant perturbs multiple uORFs, the annotation of each uORF will be 
   
 ## The detailed annotation for each consequence  
 
-
 ### uAUG gained
-| Annotations                 | Data type | Description                                                                                                                                                                                                        |
-|-----------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+| Annotations              | Data type | Description                                                                                                                                     |
+|--------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | uAUG_gained_type            | String    | The type of of 5’ UTR ORF created, described by one of the following: uORF(with a stop codon in 5’UTR), inframe_oORF (inframe and overlapping  with CDS),OutOfFrame_oORF (out of frame and overlapping with CDS)   |
 | uAUG_gained_KozakContext    | String    | The Kozak context sequence of the gained uAUG                                                                                                                                                                      |
 | uAUG_gained_KozakStrength   | String    | The Kozak strength of the gained uAUG, described by one of the following values: Weak, Moderate or Strong.                                                                                                           |
