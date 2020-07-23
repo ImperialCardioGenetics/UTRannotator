@@ -1,0 +1,10 @@
+##liftOverProgram=CrossMap(https://sourceforge.net/projects/crossmap/)
+##liftOverFile=/net/isilonP/public/ro/ensweb-data/latest/tools/www/e100/assembly_converter/homo_sapiens/GRCh37_to_GRCh38.chain.gz
+##new_reference_genome=/net/isilonP/public/ro/ensweb-data/latest/tools/www/e100/assembly_converter/homo_sapiens/Homo_sapiens.GRCh38.dna.toplevel.fa
+##liftOverTime=July22,2020
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+5	36876937	.	CC	A	.	.	.
+8	22130707	.	A	G	.	.	.
+1	112956192	.	C	T	.	.	.
+11	31806913	.	TAA	T	.	.	.
+4	153204530	.	G	GATGC	.	.	.

@@ -144,7 +144,7 @@ sub feature_types {
 	"strand" => $tr_strand,
 	"cds_seq" => $cds,
 	);
-
+		
 #    my $ucanonial_splicing = %{$self->ucanonical_splicing(\%variant,\%UTR_info)};
 	my %uAUG_gained = %{$self->uAUG_gained(\%variant,\%UTR_info)};
   	my %uSTOP_lost = %{$self->uSTOP_lost(\%variant,\%UTR_info)};

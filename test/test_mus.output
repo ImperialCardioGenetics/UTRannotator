@@ -1,0 +1,47 @@
+## ENSEMBL VARIANT EFFECT PREDICTOR v100.1
+## Output produced at 2020-07-23 12:27:45
+## Connected to mus_musculus_core_100_38 on ensembldb.ensembl.org
+## Using API version 100, DB version 100
+## ensembl-funcgen version 100.f0c3948
+## ensembl-variation version 100.b220ff4
+## ensembl version 100.7e964b7
+## ensembl-io version 100.f87ae4f
+## genebuild version 2012-07
+## assembly version GRCm38.p6
+## gencode version GENCODE M25
+## Column descriptions:
+## Uploaded_variation : Identifier of uploaded variant
+## Location : Location of variant in standard coordinate format (chr:start or chr:start-end)
+## Allele : The variant allele used to calculate the consequence
+## Gene : Stable ID of affected gene
+## Feature : Stable ID of feature
+## Feature_type : Type of feature - Transcript, RegulatoryFeature or MotifFeature
+## Consequence : Consequence type
+## cDNA_position : Relative position of base pair in cDNA sequence
+## CDS_position : Relative position of base pair in coding sequence
+## Protein_position : Relative position of amino acid in protein
+## Amino_acids : Reference and variant amino acids
+## Codons : Reference and variant codon sequence
+## Existing_variation : Identifier(s) of co-located known variants
+## IMPACT : Subjective impact classification of consequence type
+## DISTANCE : Shortest distance from variant to transcript
+## STRAND : Strand of the feature (1/-1)
+## FLAGS : Transcript quality flags
+## existing_InFrame_oORFs : The number of existing inFrame overlapping ORFs (inFrame oORF) at the 5 prime UTR
+## existing_OutOfFrame_oORFs : The number of existing out-of-frame overlapping ORFs (OutOfFrame oORF) at the 5 prime UTR
+## existing_uORFs : The number of existing uORFs with a stop codon within the 5 prime UTR
+## five_prime_UTR_variant_annotation : Output the annotation of a given 5 prime UTR variant
+## five_prime_UTR_variant_consequence : Output the variant consequences of a given 5 prime UTR variant: uAUG_gained, uAUG_lost, uSTOP_lost or uFrameshift
+#Uploaded_variation	Location	Allele	Gene	Feature	Feature_type	Consequence	cDNA_position	CDS_position	Protein_position	Amino_acids	Codons	Existing_variation	IMPACT	DISTANCE	STRAND	FLAGS	existing_InFrame_oORFs	existing_OutOfFrame_oORFs	existing_uORFs	five_prime_UTR_variant_annotation	five_prime_UTR_variant_consequence
+4_138972917_G/A	4:138972917	A	ENSMUSG00000041143	ENSMUST00000043042	Transcript	5_prime_UTR_variant	26	-	-	-	-	-	MODIFIER	-	1	-	0	0	5	uAUG_gained_CapDistanceToStart:25,uAUG_gained_DistanceToCDS:346,uAUG_gained_DistanceToStop:141,uAUG_gained_KozakContext:CAAATGT,uAUG_gained_KozakStrength:Weak,uAUG_gained_type:uORF	uAUG_gained
+4_138972917_G/A	4:138972917	A	ENSMUSG00000041143	ENSMUST00000050949	Transcript	5_prime_UTR_variant	13	-	-	-	-	-	MODIFIER	-	1	-	0	0	9	uAUG_gained_CapDistanceToStart:12,uAUG_gained_DistanceToCDS:759,uAUG_gained_DistanceToStop:393,uAUG_gained_KozakContext:CAAATGT,uAUG_gained_KozakStrength:Weak,uAUG_gained_type:uORF	uAUG_gained
+4_138972917_G/A	4:138972917	A	ENSMUSG00000070661	ENSMUST00000116094	Transcript	downstream_gene_variant	-	-	-	-	-	-	MODIFIER	4557	1	-	-	-	-	-	-
+4_138972917_G/A	4:138972917	A	ENSMUSG00000041143	ENSMUST00000123636	Transcript	5_prime_UTR_variant	30	-	-	-	-	-	MODIFIER	-	1	cds_end_NF	0	0	8	uAUG_gained_CapDistanceToStart:29,uAUG_gained_DistanceToCDS:461,uAUG_gained_DistanceToStop:144,uAUG_gained_KozakContext:CAAATGT,uAUG_gained_KozakStrength:Weak,uAUG_gained_type:uORF	uAUG_gained
+4_138972917_G/A	4:138972917	A	ENSMUSG00000041143	ENSMUST00000124835	Transcript	non_coding_transcript_exon_variant	9	-	-	-	-	-	MODIFIER	-	1	-	-	-	-	-	-
+4_138972917_G/A	4:138972917	A	ENSMUSG00000070661	ENSMUST00000239443	Transcript	downstream_gene_variant	-	-	-	-	-	-	MODIFIER	4552	1	-	-	-	-	-	-
+4_138972990_G/-	4:138972990	-	ENSMUSG00000041143	ENSMUST00000043042	Transcript	splice_donor_variant	-	-	-	-	-	-	HIGH	-	1	-	-	-	-	-	-
+4_138972990_G/-	4:138972990	-	ENSMUSG00000041143	ENSMUST00000050949	Transcript	5_prime_UTR_variant	86	-	-	-	-	-	MODIFIER	-	1	-	0	0	9	uFrameShift_Evidence:NA,uFrameShift_KozakContext:CTCATGC,uFrameShift_KozakStrength:Weak,uFrameShift_alt_type:uORF,uFrameShift_alt_type_length:21,uFrameShift_ref_StartDistanceToCDS:704,uFrameShift_ref_type:uORF,uFrameShift_ref_type_length:138	uFrameShift
+4_138972990_G/-	4:138972990	-	ENSMUSG00000070661	ENSMUST00000116094	Transcript	downstream_gene_variant	-	-	-	-	-	-	MODIFIER	4630	1	-	-	-	-	-	-
+4_138972990_G/-	4:138972990	-	ENSMUSG00000041143	ENSMUST00000123636	Transcript	splice_donor_variant	-	-	-	-	-	-	HIGH	-	1	cds_end_NF	-	-	-	-	-
+4_138972990_G/-	4:138972990	-	ENSMUSG00000041143	ENSMUST00000124835	Transcript	non_coding_transcript_exon_variant	82	-	-	-	-	-	MODIFIER	-	1	-	-	-	-	-	-
+4_138972990_G/-	4:138972990	-	ENSMUSG00000070661	ENSMUST00000239443	Transcript	downstream_gene_variant	-	-	-	-	-	-	MODIFIER	4625	1	-	-	-	-	-	-
