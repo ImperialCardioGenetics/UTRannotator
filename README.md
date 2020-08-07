@@ -26,7 +26,9 @@ The plugin is applicable to annotate 5'UTR in eukaroyotes.
  [Usage](#usage)
  
  [Translated small ORF files](#translated-small-orf-files)
+ 
       [Human](#human)
+      
       [Mouse(mm10)](#mouse)
  
  [Annotation output](#annotation-output)
