@@ -38,7 +38,7 @@ Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-funct
 To use our tool, please cite:
 
 Annotating high-impact 5'untranslated region variants with the UTRannotator
-Zhang, X., Wakeling, M.N., Ware, J.S, Whiffin,N. bioRxiv 2020.06.03.132266; doi: https://doi.org/10.1101/2020.06.03.132266
+Zhang, X., Wakeling, M.N., Ware, J.S, Whiffin, N. bioRxiv 2020.06.03.132266; doi: https://doi.org/10.1101/2020.06.03.132266
     
 # Requirements  
 - VEP (tested on release-99/202001 and release-100/202005)  
@@ -75,6 +75,9 @@ The plugin could also check whether an input variant disrupts a verified transla
   
 To use this option, users would pass an evidence file of a list of verified translated uORFs as input.   
   
+### Translated small ORFs files
+
+#### Human
 For translated small ORFs in human, we have curated a list of uORFs previously identified with ribosome profiling from the online repository of small ORFs (www.sorfs.org)  
   
 This list is available in the repository:   
@@ -97,7 +100,12 @@ For example:
 
 `START_POS` and `STOP_POS` are the start genomic position and end genomics position of a small ORF respectively. 
 
-  
+The following list is a collection of curated translated small ORF files for other species. 
+
+#### Mouse(mm10)
+https://github.com/AhmedArslan/orf_mm10 curated by Ahmed Arslan from www.sorfs.org.   
+
+
 # Annotation Output  
   
 The output annotation from the plugin includes **5 fields**:   
