@@ -25,6 +25,10 @@ The plugin is applicable to annotate 5'UTR in eukaroyotes.
  
  [Usage](#usage)
  
+ [Translated small ORF files](#translated-small-orf-files)
+      [Human](#human)
+      [Mouse(mm10)](#mouse)
+ 
  [Annotation output](#annotation-output)
  
  [Caveats](#caveats)
@@ -75,7 +79,7 @@ The plugin could also check whether an input variant disrupts a verified transla
   
 To use this option, users would pass an evidence file of a list of verified translated uORFs as input.   
   
-### Translated small ORFs files
+### Translated small ORF files
 
 #### Human
 For translated small ORFs in human, we have curated a list of uORFs previously identified with ribosome profiling from the online repository of small ORFs (www.sorfs.org)  
@@ -100,7 +104,8 @@ For example:
 
 `START_POS` and `STOP_POS` are the start genomic position and end genomics position of a small ORF respectively. 
 
-The following list is a collection of curated translated small ORF files for other species. 
+
+The following list is a collection of curated translated small ORF files for other species: 
 
 #### Mouse(mm10)
 https://github.com/AhmedArslan/orf_mm10 curated by Ahmed Arslan from www.sorfs.org.   
