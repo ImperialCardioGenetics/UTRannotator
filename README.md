@@ -63,6 +63,11 @@ To run the plugin with VEP, you could the following command line:
   
 `vep -i test.vcf --tab -plugin UTRannotator -o test.output`  
 
+If you are using offline version of VEP, it is essential to use reference genome. 
+
+`vep -i test.vcf --cache --assembly GRCh38 --fasta /path/to/GRCh38.fa --offline --plugin UTRannotator -o test.output`
+
+
 Note, it's necessary to add option `--minimal` to transform the alleles into minimal representations if it hasn't been transformed beforehand, especially for variants represented with rs IDs from dbSNP.   
   
 ## Output format 
