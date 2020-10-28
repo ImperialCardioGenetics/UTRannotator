@@ -40,7 +40,7 @@ Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-funct
 To use our tool, please cite:
 
 Annotating high-impact 5'untranslated region variants with the UTRannotator
-Zhang, X., Wakeling, M.N., Ware, J.S, Whiffin, N. Bioinformatics; doi: https://doi.org/10.1101/2020.06.03.132266
+Zhang, X., Wakeling, M.N., Ware, J.S, Whiffin, N. Bioinformatics; doi: https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaa783/5905476
     
 # Requirements  
 - VEP (tested on release-99/202001 and release-100/202005)  
