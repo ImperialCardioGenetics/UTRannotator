@@ -57,7 +57,7 @@ e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/UTRannotator` to `~/.bash
   
 # Usage  
 
-A written document can be found in this [tutorial] (https://github.com/ImperialCardioGenetics/UTRannotator/blob/master/Supplementary_Information.pdf). 
+A written document can be found in this [tutorial](https://github.com/ImperialCardioGenetics/UTRannotator/blob/master/Supplementary_Information.pdf). 
   
 ## Basic Usage  
   
