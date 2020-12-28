@@ -56,6 +56,8 @@ To use the plugin with VEP, you would need to add the plugin module in Perl's li
 e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/UTRannotator` to `~/.bash_profile`.  
   
 # Usage  
+
+A written document can be found in this [tutorial] (https://github.com/ImperialCardioGenetics/UTRannotator/blob/master/Supplementary_Information.pdf). 
   
 ## Basic Usage  
   
