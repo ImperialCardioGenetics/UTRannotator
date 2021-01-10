@@ -25,6 +25,8 @@ The plugin is applicable to annotate 5'UTR in eukaroyotes.
  
  [Usage](#usage)
  
+ [Translated small ORF files](#translated-small-orf-files)
+ 
  [Annotation output](#annotation-output)
  
  [Caveats](#caveats)
@@ -38,7 +40,7 @@ Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-funct
 To use our tool, please cite:
 
 Annotating high-impact 5'untranslated region variants with the UTRannotator
-Zhang, X., Wakeling, M.N., Ware, J.S, Whiffin,N. bioRxiv 2020.06.03.132266; doi: https://doi.org/10.1101/2020.06.03.132266
+Zhang, X., Wakeling, M.N., Ware, J.S, Whiffin, N. Bioinformatics; doi: https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaa783/5905476
     
 # Requirements  
 - VEP (tested on release-99/202001 and release-100/202005)  
@@ -54,12 +56,19 @@ To use the plugin with VEP, you would need to add the plugin module in Perl's li
 e.g. Add this line `export PERL5LIB=$PERL5LIB:/path/to/UTRannotator` to `~/.bash_profile`.  
   
 # Usage  
+
+A written document can be found in this [tutorial](https://github.com/ImperialCardioGenetics/UTRannotator/blob/master/Supplementary_Information.pdf). 
   
 ## Basic Usage  
   
 To run the plugin with VEP, you could the following command line:    
   
 `vep -i test.vcf --tab -plugin UTRannotator -o test.output`  
+
+If you are using offline version of VEP, it is essential to use reference genome. 
+
+`vep -i test.vcf --cache --assembly GRCh38 --fasta /path/to/GRCh38.fa --offline --plugin UTRannotator -o test.output`
+
 
 Note, it's necessary to add option `--minimal` to transform the alleles into minimal representations if it hasn't been transformed beforehand, especially for variants represented with rs IDs from dbSNP.   
   
@@ -75,6 +84,9 @@ The plugin could also check whether an input variant disrupts a verified transla
   
 To use this option, users would pass an evidence file of a list of verified translated uORFs as input.   
   
+### Translated small ORF files
+
+#### Human
 For translated small ORFs in human, we have curated a list of uORFs previously identified with ribosome profiling from the online repository of small ORFs (www.sorfs.org)  
   
 This list is available in the repository:   
@@ -97,7 +109,13 @@ For example:
 
 `START_POS` and `STOP_POS` are the start genomic position and end genomics position of a small ORF respectively. 
 
-  
+
+The following list is a collection of curated translated small ORF files for other species: 
+
+#### Mouse(mm10)
+https://github.com/AhmedArslan/orf_mm10 curated by Ahmed Arslan from www.sorfs.org.   
+
+
 # Annotation Output  
   
 The output annotation from the plugin includes **5 fields**:   
