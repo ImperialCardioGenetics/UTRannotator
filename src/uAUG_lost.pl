@@ -69,6 +69,8 @@ sub uAUG_lost{
   	my @mut_utr_seq = split //,$mut_utr_seq;
 
     my @start = @{$self->get_ATG_pos(\@sequence)};
+
+
     for (my $i=0;$i<@start;$i++){
 
         $flag_uORF=0;
@@ -153,18 +155,8 @@ sub uAUG_lost{
                 }
 
 
-                my %utr_pos = %{$self->chr_position($UTR_info)};
-                my $start_chr_pos = $utr_pos{$start_pos};
 
-                #find evidence from sorfs.org
-            	##TODO: fix the finding evidence of uORF
-
-            	my $query = ($chr=~/chr/i)?$chr.":".$start_chr_pos:"chr".$chr.":".$start_chr_pos;
-            	if(exists($self->{uORF_evidence})) {
-                    $uAUG_lost_evidence = $self->{uORF_evidence}->{$query} ? "True" : "False";
-                }else{
-                    $uAUG_lost_evidence="NA";
-                }
+                $uAUG_lost_evidence=$self->find_uorf_evidence($UTR_info,$chr,$start_pos);
 
                 my %uORF_effect = (
                 "uAUG_lost_type" => $uAUG_lost_type,

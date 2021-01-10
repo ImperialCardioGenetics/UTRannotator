@@ -1,6 +1,5 @@
 use strict;
 use warnings;
-use experimental 'smartmatch';
 
 sub uFrameshift{
 
@@ -68,7 +67,6 @@ sub uFrameshift{
     my $length = @mut_utr_seq;
 
     my @start = @{$self->get_ATG_pos(\@sequence)};
-    my $offset;
 
 
 	#check for each uORF
@@ -172,17 +170,8 @@ sub uFrameshift{
                 }
 
             	#find evidence from sorfs.org
-                my %utr_pos = %{$self->chr_position($UTR_info)};
-                my $start_chr_pos = $utr_pos{$start_pos};
-            	#find evidence from sorf
-            	##TODO: fix the finding evidence of uORF
-            	my $query = ($chr=~/chr/i)?$chr.":".$start_chr_pos:"chr".$chr.":".$start_chr_pos;
-                if(exists($self->{uORF_evidence})){
-                $uFrameshift_evidence=$self->{uORF_evidence}->{$query}?"True":"False";
-                }else{
-                $uFrameshift_evidence= "NA";
-                }
 
+                $uFrameshift_evidence=$self->find_uorf_evidence($UTR_info,$chr,$start_pos);
 
                 my %uORF_effect = (
                 "uFrameShift_ref_type" => $uFrameshift_ref_type,

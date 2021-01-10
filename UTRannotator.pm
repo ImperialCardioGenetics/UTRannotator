@@ -51,7 +51,7 @@ sub feature_types {
 
         if ($file)
         {
-        open my $fh, "<", $file;
+        open my $fh, "<", $file or die $!;
         my %uORF_evidence;
 
         while (<$fh>) {
@@ -144,14 +144,13 @@ sub feature_types {
 	"strand" => $tr_strand,
 	"cds_seq" => $cds,
 	);
-		
+
 #    my $ucanonial_splicing = %{$self->ucanonical_splicing(\%variant,\%UTR_info)};
 	my %uAUG_gained = %{$self->uAUG_gained(\%variant,\%UTR_info)};
   	my %uSTOP_lost = %{$self->uSTOP_lost(\%variant,\%UTR_info)};
   	my %uAUG_lost = %{$self->uAUG_lost(\%variant,\%UTR_info)};
 	my %uSTOP_gained = %{$self->uSTOP_gained(\%variant,\%UTR_info)};
     my %uFrameshift = %{$self->uFrameshift(\%variant,\%UTR_info)};
-
 
     my %five_prime_flag = (
 #    "ucanonical_splicing"=> $ucanonial_splicing{'ucanonical_splicing_flag'},

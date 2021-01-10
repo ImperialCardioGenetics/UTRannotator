@@ -82,17 +82,13 @@ sub count_number_ATG{
 
       my @sequence = @{$seq};
       my $length = @sequence;
-      my @atg_pos;
-      for (my $seq_n=0;$seq_n<=$length-3;$seq_n++){
-        if(($sequence[($seq_n)] eq 'A')&&($sequence[($seq_n+1)] eq 'T')&&($sequence[($seq_n+2)] eq 'G')){
-          #print $seq_n."\n";
-          push @atg_pos,$seq_n;
-        }
-      }
+      my $seq_str=join '', @sequence;;
+      my @atg_pos = grep {(substr ($seq_str, $_,3) eq 'ATG')} 0..($length);
 
       return \@atg_pos;
 
     }
+
 
 
     sub reverse_sequence{
@@ -274,9 +270,7 @@ sub count_number_ATG{
 
         return \%utr_position;
     }
-
-
-
+    
     sub get_allele_exon_pos {
         # return the 5' start and end position at the exon of the ref allele
 
@@ -309,8 +303,22 @@ sub count_number_ATG{
     }
 
 
+    sub find_uorf_evidence{
+       my ($self,$UTR_info,$chr,$start_pos)=@_;
+       my %utr_pos = %{$self->chr_position($UTR_info)};
+       my $start_chr_pos = $utr_pos{$start_pos};
 
 
+       my $query = ($chr=~/chr/i)?$chr.":".$start_chr_pos:"chr".$chr.":".$start_chr_pos;
+       if(exists($self->{uORF_evidence})){
+          $evidence=$self->{uORF_evidence}->{$query}?"True":"False";
+       }else{
+          $evidence= "NA";
+       }
+
+       return $evidence;
+
+    }
 
 
 
