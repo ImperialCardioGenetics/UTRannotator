@@ -86,7 +86,7 @@ To use this option, users would pass an evidence file of a list of verified tran
   
 ### Translated small ORF files
 
-#### Human
+#### Human (GRCh37/GRCh38)
 For translated small ORFs in human, we have curated a list of uORFs previously identified with ribosome profiling from the online repository of small ORFs (www.sorfs.org)  
   
 This list is available in the repository:   
