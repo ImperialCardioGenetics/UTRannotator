@@ -16,8 +16,8 @@ The annotation output is transcript-specific not restricted to canonical transcr
 The plugin is applicable to annotate 5'UTR in eukaroyotes.  
 
 
-# Content 
- [Citation](#citation)
+# Background 
+ [Background](#background)
  
  [Requirements](#requirements)
  
