@@ -31,17 +31,18 @@ The plugin is applicable to annotate 5'UTR in eukaroyotes.
  
  [Caveats](#caveats)
  
-# Citation  
+# Background 
   
 About the role of 5'UTR variants in human genetic disease: 
 
 Whiffin, N., Karczewski, K.J., Zhang, X. et al. Characterising the loss-of-function impact of 5’ untranslated region variants in 15,708 individuals. Nat Commun 11, 2523 (2020). https://doi.org/10.1038/s41467-019-10717-9  
 
-To use our tool, please cite:
+About UTRannotator:
 
 Annotating high-impact 5'untranslated region variants with the UTRannotator
 Zhang, X., Wakeling, M.N., Ware, J.S, Whiffin, N. Bioinformatics; doi: https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaa783/5905476
-    
+
+
 # Requirements  
 - VEP (tested on release-99/202001 and release-100/202005)  
 - PERL (tested on version 5.26.2)  
