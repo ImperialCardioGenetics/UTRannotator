@@ -1,8 +1,15 @@
 # UTRannotator  
 A VEP Plugin to annotate high-impact five prime UTR variants either creating new upstream ORFs or disrupting existing upstream ORFs  
+
+## Update on Aug 2024
+
+To apply the plugin with the newest version of VEP, please use the plugin version provided by Ensembl (as the compatibility is maintained by Ensembl now): https://github.com/Ensembl/VEP_plugins/blob/release/112/UTRAnnotator.pm. 
+
+This repository is an archive for the original version.  
+
   
 Currently, it will annotate whether a small variation (1-5bp) including SNVs, indels and MNVs in 5'UTR would have any of the following molecular consequences:  
-  
+
  - [uAUG_gained](#uaug-gained): creating a new start codon AUG  
  - [uAUG_lost](#uaug-lost): removing an existing start codon AUG  
  - [uSTOP_lost](#ustop-lost): removing the stop codon of an existing upstream ORF  
